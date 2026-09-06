@@ -125,8 +125,9 @@ color = Color(1, 0.99607843, 0.99607843, 1)
 [node name="Main Menu" parent="UI" unique_id=546908478 instance=ExtResource("8_bsumw")]
 visible = false
 
-[node name="LevelSelect" parent="UI" unique_id=1502061599 instance=ExtResource("9_fwcvl")]
+[node name="LevelSelect" parent="UI" unique_id=1502061599 node_paths=PackedStringArray("game") instance=ExtResource("9_fwcvl")]
 visible = false
+game = NodePath("../../Game/Game")
 
 [node name="Credits" parent="UI" unique_id=362259896 instance=ExtResource("10_na0o7")]
 visible = false
