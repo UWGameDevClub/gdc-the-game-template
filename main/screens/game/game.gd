@@ -37,8 +37,11 @@ signal game_finished
 
 @onready var music_player : AudioStreamPlayer = $MusicPlayer
 
+@onready var practice_mode_hint := $PracticeLayer/PracticeModeHint
+
 var is_practice : bool = false:
 	set(new):
+		practice_mode_hint.visible = new
 		is_practice = new
 		print("PRACTICE MODE: ", is_practice)
 
@@ -354,3 +357,12 @@ func resume_music():
 	
 	if not music_player.playing:
 		music_player.play()
+
+# Used by level select to quit early, meant for practice mode
+# doesn't currently work mid game-transition, leads to bugs and occasional crashes
+func force_quit_game():
+	return
+	unload_game()
+	lives = 0
+	play_next_game()
+	
