@@ -19,6 +19,7 @@ var game_info : MicroGameInfo:
 	set(new):
 		game_info = new
 		if new != null:
+			game.is_practice = true
 			set_credits(new.authors)
 			set_image(new.thumbnail)
 			set_description(new.description)
@@ -39,6 +40,7 @@ var game_info : MicroGameInfo:
 
 func _ready() -> void:
 	super()
+	game.connect("game_finished", _practice_finished)
 	game_list = game.selection
 	game_info = null
 	for info in game_list.selected_games:
@@ -90,3 +92,11 @@ func _on_visibility_changed():
 		game_info = null
 		if last_selected_button != null:
 			last_selected_button.hide_highlight()
+
+func _practice_finished():
+	game.is_practice = false
+	
+
+
+func _on_go_to_main_menu_pressed():
+	game.is_practice = false

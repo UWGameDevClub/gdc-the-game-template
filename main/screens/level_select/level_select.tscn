@@ -352,3 +352,4 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/InfoContainer/VBoxContainer/Buttons/GoToMainMenu" to="." method="_on_go_to_main_menu_pressed"]

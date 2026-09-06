@@ -2,7 +2,7 @@ extends Control
 class_name Game
 
 signal score_achieved(_score: int)
-
+signal game_finished
 
 @export_group("Timers")
 
@@ -36,6 +36,11 @@ signal score_achieved(_score: int)
 
 
 @onready var music_player : AudioStreamPlayer = $MusicPlayer
+
+var is_practice : bool = false:
+	set(new):
+		is_practice = new
+		print("PRACTICE MODE: ", is_practice)
 
 func _ready() -> void:
 	GameManager.enter_screen.connect(on_screen_enter)
@@ -309,8 +314,12 @@ func play_next_game():
 	if lives == 0:
 		print("game done!")
 		clear_info_layer()
-		GameManager.go_to_end()
-		score_achieved.emit(score)
+		if !is_practice:
+			GameManager.go_to_end()
+			score_achieved.emit(score)
+		else:
+			GameManager.go_to_level_select()
+		game_finished.emit()
 		return
 	
 	var micro_game : MicroGame = \
