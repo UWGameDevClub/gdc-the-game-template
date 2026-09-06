@@ -263,7 +263,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("6_5rsm8")
 disabled = true
-text = "Play"
+text = "PLAY"
 script = ExtResource("2_iwue3")
 next_screen = 3
 
