@@ -153,7 +153,7 @@ func setup_micro_game(micro_game : MicroGame, info : MicroGameInfo):
 			push_warning("a micro_game with a custom timer did not provide it!")
 			default_timer = default_timer_no_UI.instantiate()
 			$GameLayer.add_child(default_timer)
-
+			
 		micro_game.timer = default_timer
 	
 	if info.width > 0 and info.height > 0:
@@ -201,6 +201,10 @@ func play_instruction_sequence(info : MicroGameInfo):
 	
 	game_viewport.add_child(current_game)
 	
+	# some games set the value in on ready so i need to run this here
+	if default_timer and default_timer.has_method("set_display_time"):
+		default_timer.set_display_time(current_game.game_duration)
+			
 	await play_wipe(
 		screen_wipe, tex2d,
 		(

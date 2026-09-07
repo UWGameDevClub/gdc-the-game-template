@@ -4,6 +4,9 @@ extends MicroGameTimer
 
 var display_time : int = 0
 
+func set_display_time(time : float):
+	display_time = floor(time)
+	digits.set_number(display_time)
 
 func start(wait_time : float):
 	display_time = floor(wait_time)
