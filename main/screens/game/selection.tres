@@ -2,27 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cji2wkyx727kh" path="res://main/micro_game_selection.gd" id="1_57tk1"]
 [ext_resource type="Script" uid="uid://dciiueikp53p7" path="res://main/micro_game_info.gd" id="2_csxj8"]
-[ext_resource type="Resource" uid="uid://b7i8dpkg2wuew" path="res://micro_games/blurt/blurt.tres" id="3_5pdfw"]
-[ext_resource type="Resource" uid="uid://3w5238ajgll3" path="res://micro_games/bubble_sort/bubble_sort.tres" id="4_lmwxw"]
-[ext_resource type="Resource" uid="uid://c6hlsmdynnrk5" path="res://micro_games/stairs_game/stairs.tres" id="5_osjsh"]
-[ext_resource type="Resource" uid="uid://qn1724to6gxn" path="res://micro_games/build_m4/build_m4.tres" id="5_pjob2"]
-[ext_resource type="Resource" uid="uid://u63sj0cb0np6" path="res://micro_games/build_your_schedule/build_your_schedule.tres" id="6_8rlv2"]
-[ext_resource type="Resource" uid="uid://dr8xa18yksevp" path="res://micro_games/soup_time/soup_time.tres" id="6_lhcfh"]
-[ext_resource type="Resource" uid="uid://b8kyoy7uwgmwy" path="res://micro_games/bus_sprint/bus_sprint.tres" id="7_3qeww"]
-[ext_resource type="Resource" uid="uid://cmpbtw0tyt2au" path="res://micro_games/butter_toast/butter_toast.tres" id="8_y3s51"]
-[ext_resource type="Resource" uid="uid://bwdd3c137ions" path="res://micro_games/cross_the_street/cross_the_street.tres" id="9_1243a"]
-[ext_resource type="Resource" uid="uid://b8axsejnttao4" path="res://micro_games/Donot_the_button/do_not_the_button.tres" id="10_ah7n6"]
-[ext_resource type="Resource" uid="uid://m0r2l5w0awp6" path="res://micro_games/find_a_seat/find_a_seat.tres" id="11_imrc5"]
-[ext_resource type="Resource" uid="uid://dkk7e637xomiy" path="res://micro_games/garbage_sorting_game/garbage_sorting.tres" id="12_5pdfw"]
-[ext_resource type="Resource" uid="uid://hju6usnmw8nw" path="res://micro_games/keep_your_eye_on_ion_train/keep_your_eye_on_ion_train.tres" id="13_xrpdp"]
-[ext_resource type="Resource" uid="uid://mdq33f4i1lct" path="res://micro_games/memory_game/memory_game_resource.tres" id="14_pjob2"]
-[ext_resource type="Resource" uid="uid://bi50b2p78eoat" path="res://micro_games/midnight_deadline/midnight_deadline.tres" id="15_8rlv2"]
-[ext_resource type="Resource" uid="uid://co12j37mxsdom" path="res://micro_games/note_taking/note_taking.tres" id="16_pus6j"]
-[ext_resource type="Resource" uid="uid://cnnlh3d4ycpis" path="res://micro_games/pay_for_your_food/pay_for_your_food.tres" id="17_0vpdr"]
-[ext_resource type="Resource" uid="uid://b0hhq3wwifqvm" path="res://micro_games/sort_watcards/sort_watcards.tres" id="18_df8wd"]
-[ext_resource type="Resource" uid="uid://4rip7xc11d81" path="res://micro_games/touching_grass/touching_grass.tres" id="21_uw504"]
 
 [resource]
 script = ExtResource("1_57tk1")
-selected_games = Array[ExtResource("2_csxj8")]([ExtResource("3_5pdfw"), ExtResource("4_lmwxw"), ExtResource("5_pjob2"), ExtResource("6_8rlv2"), ExtResource("7_3qeww"), ExtResource("8_y3s51"), ExtResource("9_1243a"), ExtResource("10_ah7n6"), ExtResource("11_imrc5"), ExtResource("12_5pdfw"), ExtResource("13_xrpdp"), ExtResource("14_pjob2"), ExtResource("15_8rlv2"), ExtResource("16_pus6j"), ExtResource("17_0vpdr"), ExtResource("18_df8wd"), ExtResource("6_lhcfh"), ExtResource("5_osjsh"), ExtResource("21_uw504")])
 metadata/_custom_type_script = "uid://cji2wkyx727kh"
