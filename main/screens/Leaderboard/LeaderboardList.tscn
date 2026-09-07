@@ -111,6 +111,7 @@ vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="OuterPanel/MarginContainer/InnerPanel/MarginContainer" unique_id=2143816373]
 layout_mode = 2
+theme = ExtResource("1_ff4wd")
 
 [node name="ScoreContainer" type="VBoxContainer" parent="OuterPanel/MarginContainer/InnerPanel/MarginContainer/ScrollContainer" unique_id=1714136558]
 layout_mode = 2
