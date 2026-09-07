@@ -25,7 +25,13 @@ signal game_finished
 
 
 @export_group("Micro Games")
-@export var selection : MicroGameSelection
+@export var selection : MicroGameSelection:
+	set(new):
+		selection = new
+		if is_node_ready() and game_selector != null and new != null:
+			print(new.selected_games)
+			game_selector.reload(selection.selected_games)
+			game_selector.reset()
 
 @export var game_selector : GameSelector
 @export var game_loader : MicroGameCache 

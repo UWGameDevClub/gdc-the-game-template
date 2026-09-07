@@ -36,7 +36,7 @@ var game_info : MicroGameInfo:
 			set_controls(-1)
 			set_title("")
 			play_button.disabled = true
-			game.selection = game_list
+			
 
 func _ready() -> void:
 	super()
@@ -88,7 +88,7 @@ func set_title(text : String):
 
 func _on_visibility_changed():
 	if !is_node_ready():return
-	if !visible:
+	if visible:
 		game_info = null
 		if last_selected_button != null:
 			last_selected_button.hide_highlight()
@@ -100,3 +100,5 @@ func _practice_finished():
 
 func _on_go_to_main_menu_pressed():
 	game.is_practice = false
+	game.selection = game_list
+	

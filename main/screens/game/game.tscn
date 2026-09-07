@@ -129,6 +129,7 @@ layer = 3
 layer = 4
 
 [node name="PracticeModeHint" type="Control" parent="PracticeLayer" unique_id=1084014007]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
