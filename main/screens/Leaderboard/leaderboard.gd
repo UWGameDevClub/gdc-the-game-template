@@ -25,7 +25,7 @@ func _on_visibility_changed():
 		_build_local_entries()
 		http_request.test_connection()
 		await http_request.request_completed
-		if true:#http_request.most_recent_result:
+		if http_request.most_recent_result:
 			_get_online_leaderboards()
 		
 		
@@ -94,3 +94,12 @@ func _on_name_input_name_deleted():
 
 func search_by_score_resource(scr_res : ScoreResource):
 	if scr_res != null: name_input.text = scr_res.player_name
+
+
+func _on_update_timer_timeout():
+	if visible:
+		http_request.test_connection()
+		await http_request.request_completed
+		if http_request.most_recent_result:
+			_get_online_leaderboards()
+	

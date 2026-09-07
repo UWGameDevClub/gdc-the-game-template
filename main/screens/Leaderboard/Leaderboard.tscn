@@ -148,7 +148,12 @@ next_screen = 1
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=875787176]
 script = ExtResource("6_1whd7")
 
+[node name="UpdateTimer" type="Timer" parent="." unique_id=859879011]
+wait_time = 10.0
+autostart = true
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="name_created" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/CenterContainer/NameInput" to="." method="_on_name_input_name_created"]
 [connection signal="name_deleted" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/CenterContainer/NameInput" to="." method="_on_name_input_name_deleted"]
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/CenterContainer/NameInput" to="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/CenterContainer/NameInput" method="_on_text_changed"]
+[connection signal="timeout" from="UpdateTimer" to="." method="_on_update_timer_timeout"]
