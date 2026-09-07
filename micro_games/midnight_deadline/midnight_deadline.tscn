@@ -183,6 +183,9 @@ riot_icon = ExtResource("14_riot")
 pdf_filler_names = PackedStringArray("Notes.pdf", "Old_Draft.pdf", "Syllabus.pdf")
 cpp_filler_names = PackedStringArray("main.cpp", "game.cpp", "utils.cpp")
 folder_filler_names = PackedStringArray("Homework", "Photos", "Downloads")
+extra_pdf_filler_names = PackedStringArray("Lecture_Slides.pdf", "Group_Project.pdf")
+extra_cpp_filler_names = PackedStringArray("physics.cpp", "renderer.cpp")
+extra_folder_filler_names = PackedStringArray("Screenshots")
 
 [node name="BrowserWindow" type="Control" parent="UI" unique_id=1903552398]
 anchors_preset = 0

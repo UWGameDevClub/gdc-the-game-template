@@ -218,6 +218,11 @@ func play_end_sequence(packed_scene, old, new):
 	if current_game:
 		await get_tree().process_frame
 	
+	_reset_cursor()
+	resume_music()
+	_set_time_scale(speed_mult)
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+		
 	await play_wipe(
 		screen_wipe, tex2d,
 		(
@@ -226,6 +231,7 @@ func play_end_sequence(packed_scene, old, new):
 		$InfoLayer.visible = true 
 		)
 	)
+	
 	
 	if win.has_method("animate_value_change"):
 		await win.animate_value_change(old, new)
@@ -253,10 +259,13 @@ func start_game():
 	else:
 		resume_music()
 	
-	if game_selector.current_game.control_format != MicroGame.ControlFormat.KeyboardOnly:
+	if not game_selector.current_game.force_hide_mouse and \
+		game_selector.current_game.control_format != MicroGame.ControlFormat.KeyboardOnly:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	
+	_set_time_scale(speed_mult)
 	
 	if current_game.pre_game_time > 0.001:
 		current_game.enter_animation.emit()
@@ -288,15 +297,14 @@ func on_game_end(win: bool):
 		current_game.timer.stop()
 		await get_tree().create_timer(current_game.post_game_time).timeout
 		
-		_reset_cursor()
-		_set_time_scale(speed_mult)
-		resume_music()
-		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-		
-		
 		print("playing end seq")
 		if win:
-
+			
+			speed_up_in -= 1
+			if speed_up_in <= 0:
+				speed_mult += speed_inc
+				speed_up_in = speed_up_frequency
+			
 			await play_end_sequence(score_up, score, score + 1)
 			
 			score += 1
@@ -304,10 +312,7 @@ func on_game_end(win: bool):
 			#await speed_up_transtion.execute(
 				#make_transition_context(), 
 				#SpeedUpEvent.new())
-			speed_up_in -= 1
-			if speed_up_in <= 0:
-				speed_mult += speed_inc
-				speed_up_in = speed_up_frequency
+			
 			
 		else:
 			await play_end_sequence(lives_down, lives, lives - 1)
@@ -321,6 +326,8 @@ func unload_game():
 		default_timer.queue_free()
 	
 	if current_game:
+		current_game.pause_music.disconnect(pause_music)
+		current_game.resume_music.disconnect(resume_music)
 		current_game.queue_free()
 	
 	game_viewport.size_2d_override.x = 0

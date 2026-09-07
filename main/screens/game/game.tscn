@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://0jno1t6fnkp0" path="res://shared/transitions/win_lose_screens/win1.tscn" id="5_cuboj"]
 [ext_resource type="PackedScene" uid="uid://cy01vpftehrbq" path="res://shared/transitions/win_lose_screens/lose1/lose1.tscn" id="6_fnicf"]
 [ext_resource type="PackedScene" uid="uid://ijetl8g4n1kc" path="res://shared/transitions/instruction_popup/default_instruction_popup/default_instruction_popup.tscn" id="7_a2qi7"]
-[ext_resource type="Resource" uid="uid://bmk12fqp3udhw" path="res://main/screens/game/test_select.tres" id="8_a2qi7"]
+[ext_resource type="Resource" uid="uid://cjgrd0kg1u5gp" path="res://main/screens/game/selection.tres" id="8_a2qi7"]
 [ext_resource type="PackedScene" uid="uid://b0evmwm0qm4pd" path="res://main/screens/game/audio_interface/music_player.tscn" id="11_a2qi7"]
 [ext_resource type="Script" uid="uid://b8li1jb2oirqy" path="res://main/screens/game/micro_game_cache.gd" id="11_cuboj"]
 [ext_resource type="FontFile" uid="uid://k63t7wblivm1" path="res://shared/fonts/BoldsPixels.ttf" id="11_fnicf"]

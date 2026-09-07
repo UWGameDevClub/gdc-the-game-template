@@ -22,6 +22,7 @@ class_name MicroGameInfo
 @export_group("Input")
 
 @export var control_format : MicroGame.ControlFormat = MicroGame.ControlFormat.MouseAndKeyboard
+@export var force_hide_mouse : bool = false
 
 @export_group("Custom Transitions")
 @export var micro_game_event : Transition = null
