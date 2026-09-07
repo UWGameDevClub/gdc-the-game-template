@@ -45,6 +45,8 @@ signal game_finished
 
 @onready var practice_mode_hint := $PracticeLayer/PracticeModeHint
 
+var requested_end : bool = false
+
 var is_practice : bool = false:
 	set(new):
 		practice_mode_hint.visible = new
@@ -63,6 +65,9 @@ func _reset_cursor() -> void:
 		
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
+func _input(event : InputEvent):
+	if Input.is_action_just_pressed("early_exit"):
+		requested_end = true
 
 func _set_time_scale(scale : float):
 	Engine.time_scale = scale
@@ -86,6 +91,8 @@ func on_rebuild(screen):
 	resume_music()
 
 func on_screen_enter(screen):
+	requested_end = false
+	
 	if screen != GameManager.Screen.Game:
 		if music_player.bus != "bgm_muffled":
 			music_player.bus = "bgm_muffled"
@@ -320,7 +327,7 @@ func unload_game():
 	game_viewport.size_2d_override.y = 0
 
 func play_next_game():
-	if lives == 0:
+	if lives == 0 or requested_end:
 		print("game done!")
 		clear_info_layer()
 		if !is_practice:
