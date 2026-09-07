@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://cji2wkyx727kh" path="res://main/micro_game_selection.gd" id="1_pr0yn"]
 [ext_resource type="Script" uid="uid://dciiueikp53p7" path="res://main/micro_game_info.gd" id="2_baikb"]
 [ext_resource type="Resource" uid="uid://bi50b2p78eoat" path="res://micro_games/midnight_deadline/midnight_deadline.tres" id="3_2rugr"]
+[ext_resource type="Resource" uid="uid://dkk7e637xomiy" path="res://micro_games/garbage_sorting_game/garbage_sorting.tres" id="4_uj0cr"]
+[ext_resource type="Resource" uid="uid://c6hlsmdynnrk5" path="res://micro_games/stairs_game/stairs.tres" id="5_leni3"]
+[ext_resource type="Resource" uid="uid://mdq33f4i1lct" path="res://micro_games/memory_game/memory_game_resource.tres" id="6_fg6et"]
+[ext_resource type="Resource" uid="uid://dr8xa18yksevp" path="res://micro_games/soup_time/soup_time.tres" id="7_e5h0e"]
 
 [resource]
 script = ExtResource("1_pr0yn")
-selected_games = Array[ExtResource("2_baikb")]([ExtResource("3_2rugr")])
+selected_games = Array[ExtResource("2_baikb")]([ExtResource("3_2rugr"), ExtResource("4_uj0cr"), ExtResource("5_leni3"), ExtResource("6_fg6et"), ExtResource("7_e5h0e")])
 metadata/_custom_type_script = "uid://cji2wkyx727kh"

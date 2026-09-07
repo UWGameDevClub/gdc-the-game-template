@@ -11,6 +11,8 @@
 [ext_resource type="Resource" uid="uid://bmk12fqp3udhw" path="res://main/screens/game/test_select.tres" id="8_a2qi7"]
 [ext_resource type="PackedScene" uid="uid://b0evmwm0qm4pd" path="res://main/screens/game/audio_interface/music_player.tscn" id="11_a2qi7"]
 [ext_resource type="Script" uid="uid://b8li1jb2oirqy" path="res://main/screens/game/micro_game_cache.gd" id="11_cuboj"]
+[ext_resource type="FontFile" uid="uid://k63t7wblivm1" path="res://shared/fonts/BoldsPixels.ttf" id="11_fnicf"]
+[ext_resource type="Script" uid="uid://c70t25yj58aow" path="res://main/screens/game/practice_mode_hint.gd" id="11_gmayk"]
 
 [sub_resource type="Resource" id="Resource_bsumw"]
 script = ExtResource("5_8damv")
@@ -19,6 +21,56 @@ metadata/_custom_type_script = "uid://ccqkcbfi77v8e"
 [sub_resource type="Resource" id="Resource_gmayk"]
 script = ExtResource("11_cuboj")
 metadata/_custom_type_script = "uid://b8li1jb2oirqy"
+
+[sub_resource type="Animation" id="Animation_5rsm8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4exyp"]
+resource_name = "label_anim"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.3529412), Color(1, 1, 1, 0.6156863)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gmayk"]
+_data = {
+&"RESET": SubResource("Animation_5rsm8"),
+&"label_anim": SubResource("Animation_4exyp")
+}
+
+[sub_resource type="Gradient" id="Gradient_fnicf"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.9964413, 1)
+colors = PackedColorArray(0, 0.22745098, 0.25490198, 1, 0, 0.22745098, 0.25490198, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gmayk"]
+gradient = SubResource("Gradient_fnicf")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [node name="Game" type="Control" unique_id=189926272]
 layout_mode = 3
@@ -73,5 +125,61 @@ layer = 2
 [node name="TransitionOverlay" type="CanvasLayer" parent="." unique_id=346315885]
 layer = 3
 
+[node name="PracticeLayer" type="CanvasLayer" parent="." unique_id=982490130]
+layer = 4
+
+[node name="PracticeModeHint" type="Control" parent="PracticeLayer" unique_id=1084014007]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("11_gmayk")
+
+[node name="Label" type="Label" parent="PracticeLayer/PracticeModeHint" unique_id=587521232]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("11_fnicf")
+theme_override_font_sizes/font_size = 32
+text = "PRACTICE MODE"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PracticeLayer/PracticeModeHint" unique_id=563896658]
+libraries/ = SubResource("AnimationLibrary_gmayk")
+autoplay = &"label_anim"
+speed_scale = 0.5
+
+[node name="CenterContainer" type="CenterContainer" parent="PracticeLayer/PracticeModeHint" unique_id=1316567024]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="QuitProgressBar" type="TextureProgressBar" parent="PracticeLayer/PracticeModeHint/CenterContainer" unique_id=404841502]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+mouse_filter = 2
+max_value = 1.0
+step = 0.01
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_gmayk")
+
 [node name="MusicPlayer" parent="." unique_id=929919593 instance=ExtResource("11_a2qi7")]
 bus = &"bgm_muffled"
+
+[connection signal="force_quit_game" from="PracticeLayer/PracticeModeHint" to="." method="force_quit_game"]
+[connection signal="visibility_changed" from="PracticeLayer/PracticeModeHint" to="PracticeLayer/PracticeModeHint" method="_on_visibility_changed"]

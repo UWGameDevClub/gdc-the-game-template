@@ -2,7 +2,7 @@ extends Control
 class_name Game
 
 signal score_achieved(_score: int)
-
+signal game_finished
 
 @export_group("Timers")
 
@@ -36,6 +36,14 @@ signal score_achieved(_score: int)
 
 
 @onready var music_player : AudioStreamPlayer = $MusicPlayer
+
+@onready var practice_mode_hint := $PracticeLayer/PracticeModeHint
+
+var is_practice : bool = false:
+	set(new):
+		practice_mode_hint.visible = new
+		is_practice = new
+		print("PRACTICE MODE: ", is_practice)
 
 func _ready() -> void:
 	GameManager.enter_screen.connect(on_screen_enter)
@@ -309,8 +317,12 @@ func play_next_game():
 	if lives == 0:
 		print("game done!")
 		clear_info_layer()
-		GameManager.go_to_end()
-		score_achieved.emit(score)
+		if !is_practice:
+			GameManager.go_to_end()
+			score_achieved.emit(score)
+		else:
+			GameManager.go_to_level_select()
+		game_finished.emit()
 		return
 	
 	var micro_game : MicroGame = \
@@ -345,3 +357,12 @@ func resume_music():
 	
 	if not music_player.playing:
 		music_player.play()
+
+# Used by level select to quit early, meant for practice mode
+# doesn't currently work mid game-transition, leads to bugs and occasional crashes
+func force_quit_game():
+	return
+	unload_game()
+	lives = 0
+	play_next_game()
+	

@@ -110,7 +110,7 @@ script = ExtResource("1_53q0u")
 unique_name_in_owner = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1809745090]
-layer = 2
+layer = 10
 
 [node name="BaseColor" type="ColorRect" parent="UI" unique_id=1740399889]
 anchors_preset = 15
@@ -125,8 +125,9 @@ color = Color(1, 0.99607843, 0.99607843, 1)
 [node name="Main Menu" parent="UI" unique_id=546908478 instance=ExtResource("8_bsumw")]
 visible = false
 
-[node name="LevelSelect" parent="UI" unique_id=1502061599 instance=ExtResource("9_fwcvl")]
+[node name="LevelSelect" parent="UI" unique_id=1502061599 node_paths=PackedStringArray("game") instance=ExtResource("9_fwcvl")]
 visible = false
+game = NodePath("../../Game/Game")
 
 [node name="Credits" parent="UI" unique_id=362259896 instance=ExtResource("10_na0o7")]
 visible = false
@@ -143,7 +144,7 @@ local_data_manager = NodePath("../../LocalDataManager")
 visible = false
 
 [node name="UIOverlay" type="CanvasLayer" parent="." unique_id=825779749]
-layer = 2
+layer = 10
 visible = false
 
 [node name="DisableInput" type="Control" parent="UIOverlay" unique_id=570231307]
