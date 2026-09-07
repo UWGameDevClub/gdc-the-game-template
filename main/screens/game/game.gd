@@ -68,6 +68,10 @@ func _reset_cursor() -> void:
 func _input(event : InputEvent):
 	if Input.is_action_just_pressed("early_exit"):
 		requested_end = true
+		
+	elif Input.is_action_just_pressed("screenshot"):
+		pass 
+		# save_thumbnail()
 
 func _set_time_scale(scale : float):
 	Engine.time_scale = scale
@@ -128,6 +132,11 @@ func on_screen_exit(screen):
 	_set_time_scale(1)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
+func save_thumbnail():
+	if game_selector.current_game != null:
+		var img = game_viewport.get_texture().get_image()
+		img.save_png("user://%s.png" % 
+			game_selector.current_game.title.replace(" ", "_"))
 
 @onready var game_viewport = %GameViewport
 @onready var in_game_ui = "."

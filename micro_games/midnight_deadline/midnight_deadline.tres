@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dciiueikp53p7" path="res://main/micro_game_info.gd" id="1_info"]
 [ext_resource type="PackedScene" uid="uid://5q2f5qdgv0xk" path="res://micro_games/midnight_deadline/midnight_deadline.tscn" id="1_scene"]
+[ext_resource type="Texture2D" uid="uid://bgjpr2mso7ce5" path="res://thumbnails/Midnight_Deadline.png" id="3_5goaf"]
 
 [resource]
 script = ExtResource("1_info")
 title = "Midnight Deadline"
+authors = "Jason Li"
 description = "Drag the correct file into the dropbox and hit submit before the midnight deadline."
 instruction = "Submit your Essay!"
+thumbnail = ExtResource("3_5goaf")
 game_scene = ExtResource("1_scene")
 width = 1920
 height = 1080
