@@ -162,7 +162,6 @@ script = ExtResource("1_yd35k")
 next_screen = 5
 
 [node name="GoToCredits3" type="Button" parent="MarginContainer/column/MarginContainer/options" unique_id=1002012489]
-visible = false
 layout_mode = 2
 theme = ExtResource("4_tsh8g")
 theme_type_variation = &"FlatButton"

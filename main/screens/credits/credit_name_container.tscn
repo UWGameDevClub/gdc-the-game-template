@@ -17,7 +17,7 @@ border_color = Color(0, 0.22745098, 0.25490198, 1)
 corner_detail = 10
 
 [node name="CreditNameContainer" type="Control" unique_id=188256668]
-custom_minimum_size = Vector2(0, 28)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
@@ -25,7 +25,7 @@ grow_horizontal = 2
 script = ExtResource("1_nwn62")
 
 [node name="NameLabel" type="RichTextLabel" parent="." unique_id=388606276]
-custom_minimum_size = Vector2(0, 32)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -38,9 +38,11 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_w3iep")
 bbcode_enabled = true
 text = "TESTNAME"
 horizontal_alignment = 1
+vertical_alignment = 1
 meta_underlined = false
 
 [node name="InfoContainer" type="Control" parent="." unique_id=273610561]
+z_index = 2
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

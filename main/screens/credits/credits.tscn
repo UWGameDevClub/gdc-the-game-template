@@ -8,18 +8,131 @@
 [ext_resource type="PackedScene" uid="uid://fao11oaas17p" path="res://main/screens/credits/credits_container.tscn" id="6_w3iep"]
 [ext_resource type="Script" uid="uid://d0bq4ltiy67v" path="res://main/screens/credits/credit_resource.gd" id="7_aovo8"]
 
-[sub_resource type="Resource" id="Resource_qc4dc"]
+[sub_resource type="Resource" id="Resource_aovo8"]
 script = ExtResource("7_aovo8")
-credit_name = &"Everett Ripley"
-description = "Made some games
-Also did other things ig"
-link = "https://en.wikipedia.org/wiki/Main_Page"
+credit_name = &"Mac GDC"
+description = "Provided the template for UW Game Dev: The Game"
+link = "https://macgdc.itch.io/"
 metadata/_custom_type_script = "uid://d0bq4ltiy67v"
 
 [sub_resource type="Resource" id="Resource_l8l6r"]
 script = ExtResource("7_aovo8")
-credit_name = &"Arthur Ripley"
-description = "helped"
+credit_name = &"Lexie"
+description = "Did most of the work to make this function"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_aytgd"]
+script = ExtResource("7_aovo8")
+credit_name = &"Everett"
+description = "Was also here"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_qc4dc"]
+script = ExtResource("7_aovo8")
+credit_name = &"Everett"
+description = "Garbage Sorting, Memory, Soup Time, Stairs"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_wgwqo"]
+script = ExtResource("7_aovo8")
+credit_name = &"Vicky"
+description = "Blurt!"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_3nnjd"]
+script = ExtResource("7_aovo8")
+credit_name = &"Miguel"
+description = "Blurt!"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_qef6o"]
+script = ExtResource("7_aovo8")
+credit_name = &"Snowdozer"
+description = "Bubble Sort, Breakfast Rush, Do Not The Button"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_d0h8r"]
+script = ExtResource("7_aovo8")
+credit_name = &"Ginger"
+description = "Build M4"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_nsq6e"]
+script = ExtResource("7_aovo8")
+credit_name = &"Robert"
+description = "Build M4"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_xepy7"]
+script = ExtResource("7_aovo8")
+credit_name = &"BrianMakesStuff"
+description = "Build Your Schedule, Find A Seat"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_cw502"]
+script = ExtResource("7_aovo8")
+credit_name = &"Shaydas1"
+description = "Bus Sprint"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_m277g"]
+script = ExtResource("7_aovo8")
+credit_name = &"Jason Li"
+description = "Cross Philip St., Midnight Deadline"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_ynio7"]
+script = ExtResource("7_aovo8")
+credit_name = &"Tweedcreates"
+description = "Do Not The Button, Garbage Sorting, Soup Time"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_otfnp"]
+script = ExtResource("7_aovo8")
+credit_name = &"Ryesaki"
+description = "Do Not The Button"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_sehxm"]
+script = ExtResource("7_aovo8")
+credit_name = &"Jasmine"
+description = "Keep Your Eye On Ion Train!"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_q1j6b"]
+script = ExtResource("7_aovo8")
+credit_name = &"Un_Z"
+description = "Keep Your Eye On Ion Train!"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_a5rwh"]
+script = ExtResource("7_aovo8")
+credit_name = &"Sammer"
+description = "Keep Your Eye On Ion Train!"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_cffsk"]
+script = ExtResource("7_aovo8")
+credit_name = &"Saaz"
+description = "Note Taking"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_iv7ag"]
+script = ExtResource("7_aovo8")
+credit_name = &"Aaryn Xie"
+description = "Pay For Your Food, Touching Grass"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_ve3we"]
+script = ExtResource("7_aovo8")
+credit_name = &"Liam"
+description = "Sort Watcards"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_ya1u7"]
+script = ExtResource("7_aovo8")
+credit_name = &"Zheng Zhu"
+description = "Touching Grass"
 metadata/_custom_type_script = "uid://d0bq4ltiy67v"
 
 [node name="Credits" type="Control" unique_id=856511887]
@@ -43,6 +156,7 @@ grow_vertical = 2
 color = Color(1, 0.99607843, 0.99607843, 1)
 
 [node name="CenterContainer2" type="CenterContainer" parent="." unique_id=992297702]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,13 +168,23 @@ grow_vertical = 2
 layout_mode = 2
 script = ExtResource("2_xqq8u")
 
-[node name="GoToMainMenu" type="Button" parent="." unique_id=1997709314]
-layout_mode = 0
-offset_left = 1020.0
-offset_top = 579.0
-offset_right = 1116.0
-offset_bottom = 610.0
-text = "Main Menu
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2083360282]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -63.0
+offset_right = 48.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GoToMainMenu" type="Button" parent="CenterContainer" unique_id=1997709314]
+layout_mode = 2
+theme = ExtResource("4_sufxu")
+text = "RETURN
 "
 script = ExtResource("1_xymp1")
 next_screen = 1
@@ -85,6 +209,29 @@ alignment = 1
 [node name="GlobalCredits" type="Control" parent="MarginContainer/HBoxContainer" unique_id=518318705]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/GlobalCredits" unique_id=742045584]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/GlobalCredits/VBoxContainer" unique_id=504759094]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("5_w3iep")
+theme_override_font_sizes/font_size = 64
+text = "MAINTENANCE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsContainer" parent="MarginContainer/HBoxContainer/GlobalCredits/VBoxContainer" unique_id=1994213012 instance=ExtResource("6_w3iep")]
+layout_mode = 2
+credits = Array[ExtResource("7_aovo8")]([SubResource("Resource_aovo8"), SubResource("Resource_l8l6r"), SubResource("Resource_aytgd")])
 
 [node name="BatchCredits" type="Control" parent="MarginContainer/HBoxContainer" unique_id=540792672]
 layout_mode = 2
@@ -128,7 +275,8 @@ theme = ExtResource("4_sufxu")
 disabled = true
 text = ">"
 
-[node name="CreditsContainer" parent="MarginContainer/HBoxContainer/BatchCredits/VBoxContainer" unique_id=1994213012 instance=ExtResource("6_w3iep")]
+[node name="CreditsContainer" parent="MarginContainer/HBoxContainer/BatchCredits/VBoxContainer" unique_id=992614617 instance=ExtResource("6_w3iep")]
 layout_mode = 2
-credits = Array[ExtResource("7_aovo8")]([SubResource("Resource_qc4dc"), SubResource("Resource_l8l6r")])
+credits = Array[ExtResource("7_aovo8")]([SubResource("Resource_qc4dc"), SubResource("Resource_wgwqo"), SubResource("Resource_3nnjd"), SubResource("Resource_qef6o"), SubResource("Resource_d0h8r"), SubResource("Resource_nsq6e"), SubResource("Resource_xepy7"), SubResource("Resource_cw502"), SubResource("Resource_m277g"), SubResource("Resource_ynio7"), SubResource("Resource_otfnp"), SubResource("Resource_sehxm"), SubResource("Resource_q1j6b"), SubResource("Resource_a5rwh"), SubResource("Resource_cffsk"), SubResource("Resource_iv7ag"), SubResource("Resource_ve3we"), SubResource("Resource_ya1u7")])
 is_alphabetical = true
+add_extra_space = true

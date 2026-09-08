@@ -5,15 +5,20 @@ extends Control
 
 @export var credits : Array[_CreditResource]
 @export var is_alphabetical : bool = false
+@export var add_extra_space : bool = false
 
 func _ready():
 	if is_alphabetical: sort_credits()
 	for c in credits:
 		create_credit_container(c)
+	if add_extra_space:
+		var end_ref := Control.new()
+		end_ref.custom_minimum_size.y = 100
+		credit_parent.add_child(end_ref)
 
 func sort_credits():
 	credits.sort_custom(func(x:_CreditResource, y:_CreditResource):
-		return x.credit_name < y.credit_name)
+		return x.credit_name.naturalnocasecmp_to(y.credit_name) < 0)
 
 func create_credit_container(cred_res : _CreditResource):
 	var cc : _CreditNameContainer = credit_name_container_scn.instantiate()

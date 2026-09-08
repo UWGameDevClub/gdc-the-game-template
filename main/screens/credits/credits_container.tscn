@@ -2,19 +2,12 @@
 
 [ext_resource type="Script" uid="uid://c34d3lhnhifw4" path="res://main/screens/credits/credits_container.gd" id="1_8dv3l"]
 [ext_resource type="Theme" uid="uid://d1iskwj0kgqo8" path="res://main/themes/menu_theme.tres" id="1_mcscu"]
-[ext_resource type="Script" uid="uid://d0bq4ltiy67v" path="res://main/screens/credits/credit_resource.gd" id="2_8dv3l"]
-
-[sub_resource type="Resource" id="Resource_8dv3l"]
-script = ExtResource("2_8dv3l")
-credit_name = &"test"
-metadata/_custom_type_script = "uid://d0bq4ltiy67v"
 
 [node name="CreditsContainer" type="Control" unique_id=1994213012]
 layout_mode = 3
 anchors_preset = 0
 size_flags_vertical = 3
 script = ExtResource("1_8dv3l")
-credits = Array[ExtResource("2_8dv3l")]([SubResource("Resource_8dv3l")])
 
 [node name="Panel" type="Panel" parent="." unique_id=532392130]
 layout_mode = 1
