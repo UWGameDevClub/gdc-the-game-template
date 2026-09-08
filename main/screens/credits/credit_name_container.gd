@@ -22,7 +22,6 @@ var link : String:
 			name_label.text = "[center][url=" + new + "]" + credit_name.to_upper() + "[/url]"
 
 func _on_name_label_mouse_entered():
-	print("hello")
 	var t := create_tween()
 	t.set_trans(Tween.TRANS_QUAD)
 	t.set_ease(Tween.EASE_IN_OUT)
