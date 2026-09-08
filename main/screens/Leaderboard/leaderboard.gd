@@ -38,6 +38,10 @@ func _get_online_leaderboards():
 		options.page = page
 		var alltime_res := await Talo.leaderboards.get_entries(TALO_alltime_leaderboard_name, options)
 		
+		if alltime_res == null:
+			print("ERROR LOADING ALLTIME LEADERBOARD")
+			break
+		
 		var is_last_page : bool = alltime_res.is_last_page
 		if is_last_page:
 			done = true
@@ -48,6 +52,10 @@ func _get_online_leaderboards():
 		var options := Talo.leaderboards.GetEntriesOptions.new()
 		options.page = page
 		var daily_res := await Talo.leaderboards.get_entries(TALO_daily_leaderboard_name, options)
+		
+		if daily_res == null:
+			print("ERROR LOADING DAILY LEADERBOARD")
+			break
 		
 		var is_last_page : bool = daily_res.is_last_page
 		if is_last_page:
