@@ -321,6 +321,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_5rsm8")
 theme_override_styles/panel = SubResource("StyleBoxFlat_4exyp")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/GamesContainer/VBoxContainer/Control" unique_id=446315684]

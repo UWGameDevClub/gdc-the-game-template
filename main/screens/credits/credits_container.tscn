@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://fao11oaas17p"]
+
+[ext_resource type="Script" uid="uid://c34d3lhnhifw4" path="res://main/screens/credits/credits_container.gd" id="1_8dv3l"]
+[ext_resource type="Theme" uid="uid://d1iskwj0kgqo8" path="res://main/themes/menu_theme.tres" id="1_mcscu"]
+[ext_resource type="Script" uid="uid://d0bq4ltiy67v" path="res://main/screens/credits/credit_resource.gd" id="2_8dv3l"]
+
+[sub_resource type="Resource" id="Resource_8dv3l"]
+script = ExtResource("2_8dv3l")
+credit_name = &"test"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[node name="CreditsContainer" type="Control" unique_id=1994213012]
+layout_mode = 3
+anchors_preset = 0
+size_flags_vertical = 3
+script = ExtResource("1_8dv3l")
+credits = Array[ExtResource("2_8dv3l")]([SubResource("Resource_8dv3l")])
+
+[node name="Panel" type="Panel" parent="." unique_id=532392130]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mcscu")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1680695380]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=1248913575]
+layout_mode = 2
+theme = ExtResource("1_mcscu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer" unique_id=1057545428]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20

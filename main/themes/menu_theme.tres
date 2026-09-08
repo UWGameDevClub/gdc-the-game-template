@@ -2,6 +2,23 @@
 
 [ext_resource type="FontFile" uid="uid://k63t7wblivm1" path="res://shared/fonts/BoldsPixels.ttf" id="1_8pylw"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4exyp"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 0.99607843, 0.99607843, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0.22745098, 0.25490198, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
 [sub_resource type="DPITexture" id="DPITexture_8pylw"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"24\" height=\"32\" viewBox=\"0 0 6.35 8.467\"><defs><linearGradient id=\"a\"><stop offset=\"0\" stop-color=\"#fff\" stop-opacity=\".3\"/><stop offset=\"1\" stop-color=\"#fff\" stop-opacity=\"0\"/></linearGradient><linearGradient xlink:href=\"#a\" id=\"b\" x1=\"4.233\" x2=\"4.233\" y1=\"0\" y2=\"6.35\" gradientTransform=\"translate(-8.467)\" gradientUnits=\"userSpaceOnUse\"/></defs><path fill=\"url(#b)\" d=\"M-8.467 0H0V6.35H-8.467z\" paint-order=\"fill markers stroke\" transform=\"rotate(-90)\"/></svg>
 "
@@ -76,6 +93,7 @@ corner_radius_bottom_left = 2
 corner_detail = 6
 
 [resource]
+AcceptDialog/styles/panel = null
 Button/colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
 Button/colors/font_focus_color = Color(0.21568628, 0.49411765, 0.52156866, 1)
 Button/colors/font_hover_color = Color(0.21568628, 0.49411765, 0.52156866, 1)
@@ -88,6 +106,7 @@ Button/styles/focus = null
 Button/styles/hover = null
 Button/styles/normal = null
 Button/styles/pressed = null
+Panel/styles/panel = SubResource("StyleBoxFlat_4exyp")
 ScrollContainer/colors/scroll_hint_horizontal_color = Color(0, 0, 0, 1)
 ScrollContainer/colors/scroll_hint_vertical_color = Color(0, 0, 0, 1)
 ScrollContainer/icons/scroll_hint_horizontal = SubResource("DPITexture_8pylw")
