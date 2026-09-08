@@ -36,6 +36,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0jj8b")
+is_public_display = true
 this_screen = 5
 metadata/_custom_type_script = "uid://dtyvffw85vxrq"
 
