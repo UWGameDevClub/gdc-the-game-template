@@ -5,8 +5,10 @@
 [ext_resource type="Script" uid="uid://d1l1c5xva3lcu" path="res://main/screens/level_switch_button.gd" id="2_3g33b"]
 [ext_resource type="FontFile" uid="uid://k63t7wblivm1" path="res://shared/fonts/BoldsPixels.ttf" id="3_0jj8b"]
 [ext_resource type="PackedScene" uid="uid://byuqc5wjgbfrh" path="res://main/screens/Leaderboard/LeaderboardList.tscn" id="4_0jj8b"]
+[ext_resource type="Texture2D" uid="uid://c2uc26j4x88dc" path="res://main/screens/Leaderboard/discord_invite_qr_code_cropped.png" id="5_mduo7"]
 [ext_resource type="Script" uid="uid://ftx6f41o2bua" path="res://main/screens/Leaderboard/name_input.gd" id="5_pig7g"]
 [ext_resource type="Script" uid="uid://cs26xqu5v5m2k" path="res://main/screens/Leaderboard/connection_test.gd" id="6_1whd7"]
+[ext_resource type="Texture2D" uid="uid://cvhdxuq84m121" path="res://main/screens/Leaderboard/itch_page_qr_code_cropped.png" id="6_gfk5p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpeqc"]
 content_margin_left = 0.0
@@ -80,6 +82,58 @@ leaderboard_name = "LOCAL"
 [node name="TodayLeaderboardList" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=958035784 instance=ExtResource("4_0jj8b")]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="QRCodeContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1223395782]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/VBoxContainer/HBoxContainer/QRCodeContainer" unique_id=1976831697]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/QRCodeContainer" unique_id=1505167655]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/QRCodeContainer/VBoxContainer" unique_id=1892219587]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_0jj8b")
+theme_override_font_sizes/font_size = 24
+text = "JOIN THE DISCORD!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/QRCodeContainer/VBoxContainer" unique_id=258827757]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("5_mduo7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/QRCodeContainer" unique_id=1702939225]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/QRCodeContainer/VBoxContainer2" unique_id=795462695]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_0jj8b")
+theme_override_font_sizes/font_size = 24
+text = "KEEP PLAYING THE GAMES!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/QRCodeContainer/VBoxContainer2" unique_id=743178426]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("6_gfk5p")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="AllTimeLeaderboardList" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=655151187 instance=ExtResource("4_0jj8b")]
 layout_mode = 2
