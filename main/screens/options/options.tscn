@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://cc8naaxt2c6fp"]
+
+[ext_resource type="Script" uid="uid://dxd7dwic3m616" path="res://main/screens/options/options.gd" id="1_fyo4q"]
+[ext_resource type="FontFile" uid="uid://k63t7wblivm1" path="res://shared/fonts/BoldsPixels.ttf" id="2_c1ptt"]
+[ext_resource type="PackedScene" uid="uid://byuqc5wjgbfrh" path="res://main/screens/Leaderboard/LeaderboardList.tscn" id="2_fjc6p"]
+[ext_resource type="Theme" uid="uid://d1iskwj0kgqo8" path="res://main/themes/menu_theme.tres" id="2_q42iu"]
+[ext_resource type="Script" uid="uid://d1l1c5xva3lcu" path="res://main/screens/level_switch_button.gd" id="3_fjc6p"]
+
+[node name="Options" type="Control" unique_id=995696881]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fyo4q")
+this_screen = 6
+metadata/_custom_type_script = "uid://dtyvffw85vxrq"
+
+[node name="BaseColor" type="ColorRect" parent="." unique_id=1387704607]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.99607843, 0.99607843, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=525578730]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 80
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=92288370]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="GraphicsAndAudioManagement" type="Control" parent="MarginContainer/HBoxContainer" unique_id=287405227]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/GraphicsAndAudioManagement" unique_id=1068251050]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("2_c1ptt")
+theme_override_font_sizes/font_size = 32
+text = "GRAPHICS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/GraphicsAndAudioManagement" unique_id=761537535]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/GraphicsAndAudioManagement/VBoxContainer" unique_id=949860354]
+layout_mode = 2
+alignment = 1
+
+[node name="FullScreenCheckButton" type="CheckButton" parent="MarginContainer/HBoxContainer/GraphicsAndAudioManagement/VBoxContainer/HBoxContainer" unique_id=1350108381]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("2_c1ptt")
+theme_override_font_sizes/font_size = 32
+text = "FULL SCREEN"
+
+[node name="DataManagement" type="Control" parent="MarginContainer/HBoxContainer" unique_id=420719394]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/DataManagement" unique_id=1197332338]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("2_c1ptt")
+theme_override_font_sizes/font_size = 32
+text = "LOCAL DATA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeaderboardList" parent="MarginContainer/HBoxContainer/DataManagement" unique_id=1963682393 instance=ExtResource("2_fjc6p")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+leaderboard_name = ""
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=258005326]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -88.5
+offset_top = -91.0
+offset_right = 88.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GoToMainMenu" type="Button" parent="CenterContainer" unique_id=1547918993]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_q42iu")
+text = "RETURN
+"
+script = ExtResource("3_fjc6p")
+next_screen = 1
+
+[connection signal="toggled" from="MarginContainer/HBoxContainer/GraphicsAndAudioManagement/VBoxContainer/HBoxContainer/FullScreenCheckButton" to="." method="_on_full_screen_check_button_toggled"]

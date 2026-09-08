@@ -7,7 +7,8 @@ enum Screen {
 	LevelSelect,
 	Game,
 	Credits,
-	Leaderboard
+	Leaderboard,
+	Options
 }
 
 # signal bus for screens

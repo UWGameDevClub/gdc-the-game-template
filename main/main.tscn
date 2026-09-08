@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://clbdjqcokpicy" path="res://main/screens/Leaderboard/LocalDataManager.tscn" id="2_0i4oc"]
 [ext_resource type="PackedScene" uid="uid://dxwa1yvb1t7sa" path="res://main/screens/game/game.tscn" id="2_4dugh"]
 [ext_resource type="PackedScene" uid="uid://bjgbr1x8cwahg" path="res://main/screens/Leaderboard/ScoreCreator.tscn" id="3_grrlh"]
+[ext_resource type="PackedScene" uid="uid://cc8naaxt2c6fp" path="res://main/screens/options/options.tscn" id="7_0i4oc"]
 [ext_resource type="PackedScene" uid="uid://3gmyrempxmn4" path="res://main/screens/title_screen/title_screen.tscn" id="7_4dugh"]
 [ext_resource type="PackedScene" uid="uid://cwwjmkhexeoxu" path="res://main/screens/Leaderboard/Leaderboard.tscn" id="8_67ri8"]
 [ext_resource type="PackedScene" uid="uid://bvd8iqr5v1mwb" path="res://main/screens/main_menu/main_menu.tscn" id="8_bsumw"]
 [ext_resource type="PackedScene" uid="uid://c1p0saalrpy3k" path="res://main/screens/level_select/level_select.tscn" id="9_fwcvl"]
 [ext_resource type="PackedScene" uid="uid://0m2u2s37fdxe" path="res://main/screens/credits/credits.tscn" id="10_na0o7"]
-[ext_resource type="PackedScene" uid="uid://dj86tc0jsgbo2" path="res://main/screens/end/end.tscn" id="11_73k8k"]
 
 [sub_resource type="Animation" id="Animation_4dugh"]
 length = 0.001
@@ -129,12 +129,11 @@ visible = false
 visible = false
 game = NodePath("../../Game/Game")
 
-[node name="Credits" parent="UI" unique_id=362259896 instance=ExtResource("10_na0o7")]
+[node name="Options" parent="UI" unique_id=995696881 instance=ExtResource("7_0i4oc")]
 visible = false
 
-[node name="End" parent="UI" unique_id=150465357 instance=ExtResource("11_73k8k")]
+[node name="Credits" parent="UI" unique_id=362259896 instance=ExtResource("10_na0o7")]
 visible = false
-this_screen = 6
 
 [node name="Leaderboard" parent="UI" unique_id=244793586 node_paths=PackedStringArray("local_data_manager") instance=ExtResource("8_67ri8")]
 visible = false

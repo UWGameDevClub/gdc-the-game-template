@@ -174,5 +174,17 @@ alignment = 0
 script = ExtResource("1_yd35k")
 next_screen = 4
 
+[node name="GoToCredits4" type="Button" parent="MarginContainer/column/MarginContainer/options" unique_id=1562460101]
+layout_mode = 2
+theme = ExtResource("4_tsh8g")
+theme_type_variation = &"FlatButton"
+text = "OPTIONS
+
+"
+flat = true
+alignment = 0
+script = ExtResource("1_yd35k")
+next_screen = 6
+
 [node name="background_animation" type="AnimationPlayer" parent="." unique_id=1945645526]
 libraries/ = SubResource("AnimationLibrary_spauq")
