@@ -6,7 +6,6 @@
 [ext_resource type="FontFile" uid="uid://k63t7wblivm1" path="res://shared/fonts/BoldsPixels.ttf" id="3_0jj8b"]
 [ext_resource type="PackedScene" uid="uid://byuqc5wjgbfrh" path="res://main/screens/Leaderboard/LeaderboardList.tscn" id="4_0jj8b"]
 [ext_resource type="Script" uid="uid://ftx6f41o2bua" path="res://main/screens/Leaderboard/name_input.gd" id="5_pig7g"]
-[ext_resource type="Script" uid="uid://cs26xqu5v5m2k" path="res://main/screens/Leaderboard/connection_test.gd" id="6_1whd7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpeqc"]
 content_margin_left = 0.0
@@ -144,9 +143,6 @@ text = "RETURN
 "
 script = ExtResource("2_3g33b")
 next_screen = 1
-
-[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=875787176]
-script = ExtResource("6_1whd7")
 
 [node name="UpdateTimer" type="Timer" parent="." unique_id=859879011]
 wait_time = 10.0
