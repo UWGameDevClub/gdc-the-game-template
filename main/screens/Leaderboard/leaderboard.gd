@@ -45,6 +45,7 @@ func _get_online_leaderboards():
 		var is_last_page : bool = alltime_res.is_last_page
 		if is_last_page:
 			done = true
+		page += 1
 	
 	page = 0
 	done = false
@@ -60,6 +61,7 @@ func _get_online_leaderboards():
 		var is_last_page : bool = daily_res.is_last_page
 		if is_last_page:
 			done = true
+		page += 1
 	
 	_build_online_entries()
 
