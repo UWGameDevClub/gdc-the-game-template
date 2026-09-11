@@ -145,7 +145,7 @@ script = ExtResource("2_3g33b")
 next_screen = 1
 
 [node name="UpdateTimer" type="Timer" parent="." unique_id=859879011]
-wait_time = 10.0
+wait_time = 120.0
 autostart = true
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
