@@ -20,6 +20,8 @@ func update_alltime(scores:Array[ScoreResource]):
 
 func _on_visibility_changed():
 	if visible:
+		alltime_leaderboard.show_loading_notification()
+		today_leaderboard.show_loading_notification()
 		_get_local_leaderboards()
 		_get_online_leaderboards()
 		
