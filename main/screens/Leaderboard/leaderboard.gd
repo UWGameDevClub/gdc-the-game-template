@@ -6,6 +6,7 @@ signal request_local_leaderboards
 @onready var local_leaderboard := $MarginContainer/VBoxContainer/HBoxContainer/LocalLeaderboardList
 @onready var today_leaderboard := $MarginContainer/VBoxContainer/HBoxContainer/TodayLeaderboardList
 @onready var alltime_leaderboard := $MarginContainer/VBoxContainer/HBoxContainer/AllTimeLeaderboardList
+@onready var event_leaderboard := $MarginContainer/VBoxContainer/HBoxContainer/EventLeaderboardList
 @onready var name_input := $MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/CenterContainer/NameInput
 
 
@@ -17,6 +18,9 @@ func update_today(scores:Array[ScoreResource]):
 
 func update_alltime(scores:Array[ScoreResource]):
 	alltime_leaderboard.display_score_list(scores)
+
+func update_event(scores:Array[ScoreResource]):
+	event_leaderboard.display_score_list(scores)
 
 func _on_visibility_changed():
 	if visible:
@@ -32,11 +36,13 @@ func _get_online_leaderboards():
 func _get_local_leaderboards():
 	request_local_leaderboards.emit()
 
-func _build_online_entries(daily_list : Array[ScoreResource], alltime_list : Array[ScoreResource]):
+func _build_online_entries(daily_list : Array[ScoreResource], alltime_list : Array[ScoreResource], event_list : Array[ScoreResource]):
 	update_alltime(alltime_list)
 	update_today(daily_list)
+	update_event(event_list)
 	alltime_leaderboard.highlight_name(name_input.text)
 	today_leaderboard.highlight_name(name_input.text)
+	event_leaderboard.highlight_name(name_input.text)
 
 func _build_local_entries(local_list : Array[ScoreResource]):
 	update_local(local_list)
@@ -48,6 +54,7 @@ func highlight_score(name:String):
 	local_leaderboard.highlight_name(name)
 	today_leaderboard.highlight_name(name)
 	alltime_leaderboard.highlight_name(name)
+	event_leaderboard.highlight_name(name)
 
 
 func _on_name_input_name_created():

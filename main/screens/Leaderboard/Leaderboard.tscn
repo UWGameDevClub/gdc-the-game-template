@@ -85,6 +85,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 leaderboard_name = "ALL TIME"
 
+[node name="EventLeaderboardList" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1492462172 instance=ExtResource("4_0jj8b")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+leaderboard_name = "CLUBS FAIR"
+
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1468535506]
 layout_mode = 2
 
