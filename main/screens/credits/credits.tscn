@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://caqcwclhvb32d" path="res://main/screens/credits/credit_listings.gd" id="2_xqq8u"]
 [ext_resource type="Theme" uid="uid://d1iskwj0kgqo8" path="res://main/themes/menu_theme.tres" id="4_sufxu"]
 [ext_resource type="FontFile" uid="uid://k63t7wblivm1" path="res://shared/fonts/BoldsPixels.ttf" id="5_w3iep"]
+[ext_resource type="Texture2D" uid="uid://cr3ihfci1bskq" path="res://main/screens/credits/dev_chan_credits_icon.png" id="6_qc4dc"]
 [ext_resource type="PackedScene" uid="uid://fao11oaas17p" path="res://main/screens/credits/credits_container.tscn" id="6_w3iep"]
 [ext_resource type="Script" uid="uid://d0bq4ltiy67v" path="res://main/screens/credits/credit_resource.gd" id="7_aovo8"]
 
@@ -25,6 +26,13 @@ metadata/_custom_type_script = "uid://d0bq4ltiy67v"
 script = ExtResource("7_aovo8")
 credit_name = &"Everett"
 description = "Was also here"
+metadata/_custom_type_script = "uid://d0bq4ltiy67v"
+
+[sub_resource type="Resource" id="Resource_vdx1n"]
+script = ExtResource("7_aovo8")
+credit_name = &"Dev Chan"
+description = "devchan"
+icon = ExtResource("6_qc4dc")
 metadata/_custom_type_script = "uid://d0bq4ltiy67v"
 
 [sub_resource type="Resource" id="Resource_qc4dc"]
@@ -210,7 +218,7 @@ vertical_alignment = 1
 
 [node name="CreditsContainer" parent="MarginContainer/HBoxContainer/GlobalCredits/VBoxContainer" unique_id=1994213012 instance=ExtResource("6_w3iep")]
 layout_mode = 2
-credits = Array[ExtResource("7_aovo8")]([SubResource("Resource_aovo8"), SubResource("Resource_l8l6r"), SubResource("Resource_aytgd")])
+credits = Array[ExtResource("7_aovo8")]([SubResource("Resource_aovo8"), SubResource("Resource_l8l6r"), SubResource("Resource_aytgd"), SubResource("Resource_vdx1n")])
 
 [node name="BatchCredits" type="Control" parent="MarginContainer/HBoxContainer" unique_id=540792672]
 layout_mode = 2

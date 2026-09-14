@@ -5,7 +5,9 @@ const animation_time : float = 0.2
 
 @onready var info_container := $InfoContainer
 @onready var name_label := $NameLabel
-@onready var info_label := $InfoContainer/Panel/MarginContainer/InfoLabel
+@onready var info_label := $InfoContainer/Panel/MarginContainer/HBoxContainer/InfoLabel
+@onready var icon_panel := $InfoContainer/Panel/MarginContainer/HBoxContainer/Panel
+@onready var icon_rect := $InfoContainer/Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/CreditIcon
 
 var credit_name : StringName:
 	set(new):
@@ -20,6 +22,11 @@ var link : String:
 		link = new
 		if link != "":
 			name_label.text = "[center][url=" + new + "]" + credit_name.to_upper() + "[/url]"
+var icon : Texture:
+	set(new):
+		icon = new
+		icon_rect.texture = icon
+		icon_panel.visible = icon != null
 
 func _on_name_label_mouse_entered():
 	var t := create_tween()

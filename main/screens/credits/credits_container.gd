@@ -26,3 +26,4 @@ func create_credit_container(cred_res : _CreditResource):
 	cc.credit_name = cred_res.credit_name
 	cc.info = cred_res.description
 	cc.link = cred_res.link
+	cc.icon = cred_res.icon
