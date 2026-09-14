@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c4oipvvn88xbe" path="res://main/main.gd" id="1_53q0u"]
 [ext_resource type="PackedScene" uid="uid://clbdjqcokpicy" path="res://main/screens/Leaderboard/LocalDataManager.tscn" id="2_0i4oc"]
 [ext_resource type="PackedScene" uid="uid://dxwa1yvb1t7sa" path="res://main/screens/game/game.tscn" id="2_4dugh"]
+[ext_resource type="PackedScene" uid="uid://cboijaiisse1" path="res://main/screens/Leaderboard/GlobalDataManager.tscn" id="3_bsumw"]
 [ext_resource type="PackedScene" uid="uid://bjgbr1x8cwahg" path="res://main/screens/Leaderboard/ScoreCreator.tscn" id="3_grrlh"]
 [ext_resource type="PackedScene" uid="uid://3gmyrempxmn4" path="res://main/screens/title_screen/title_screen.tscn" id="7_4dugh"]
 [ext_resource type="PackedScene" uid="uid://cwwjmkhexeoxu" path="res://main/screens/Leaderboard/Leaderboard.tscn" id="8_67ri8"]
@@ -104,6 +105,8 @@ script = ExtResource("1_53q0u")
 
 [node name="LocalDataManager" parent="." unique_id=1820790310 instance=ExtResource("2_0i4oc")]
 
+[node name="GlobalDataManager" parent="." unique_id=709546985 instance=ExtResource("3_bsumw")]
+
 [node name="Game" type="CanvasLayer" parent="." unique_id=1715780943]
 
 [node name="Game" parent="Game" unique_id=189926272 instance=ExtResource("2_4dugh")]
@@ -136,9 +139,8 @@ visible = false
 visible = false
 this_screen = 6
 
-[node name="Leaderboard" parent="UI" unique_id=244793586 node_paths=PackedStringArray("local_data_manager") instance=ExtResource("8_67ri8")]
+[node name="Leaderboard" parent="UI" unique_id=244793586 instance=ExtResource("8_67ri8")]
 visible = false
-local_data_manager = NodePath("../../LocalDataManager")
 
 [node name="ScoreCreator" parent="UI" unique_id=1807623919 instance=ExtResource("3_grrlh")]
 visible = false
@@ -159,6 +161,11 @@ grow_vertical = 2
 root_node = NodePath("../UI")
 libraries/ = SubResource("AnimationLibrary_grrlh")
 
+[connection signal="local_leaderboard_updated" from="LocalDataManager" to="UI/Leaderboard" method="_build_local_entries"]
+[connection signal="global_leaderboards_updated" from="GlobalDataManager" to="UI/Leaderboard" method="_build_online_entries"]
 [connection signal="score_achieved" from="Game/Game" to="UI/ScoreCreator" method="open_creator"]
+[connection signal="request_local_leaderboards" from="UI/Leaderboard" to="LocalDataManager" method="emit_scores"]
+[connection signal="request_online_leaderboards" from="UI/Leaderboard" to="GlobalDataManager" method="get_scores"]
 [connection signal="score_created" from="UI/ScoreCreator" to="LocalDataManager" method="add_score"]
+[connection signal="score_created" from="UI/ScoreCreator" to="GlobalDataManager" method="add_score"]
 [connection signal="score_created" from="UI/ScoreCreator" to="UI/Leaderboard" method="search_by_score_resource"]
