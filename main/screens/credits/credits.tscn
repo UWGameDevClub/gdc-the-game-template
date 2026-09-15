@@ -26,6 +26,7 @@ metadata/_custom_type_script = "uid://d0bq4ltiy67v"
 script = ExtResource("7_aovo8")
 credit_name = &"Everett"
 description = "Was also here"
+link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 metadata/_custom_type_script = "uid://d0bq4ltiy67v"
 
 [sub_resource type="Resource" id="Resource_vdx1n"]
@@ -39,6 +40,7 @@ metadata/_custom_type_script = "uid://d0bq4ltiy67v"
 script = ExtResource("7_aovo8")
 credit_name = &"Everett"
 description = "Garbage Sorting, Memory, Soup Time, Stairs"
+link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 metadata/_custom_type_script = "uid://d0bq4ltiy67v"
 
 [sub_resource type="Resource" id="Resource_wgwqo"]

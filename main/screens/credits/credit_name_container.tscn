@@ -42,6 +42,7 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
+mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0.22745098, 0.25490198, 1)
 theme_override_fonts/normal_font = ExtResource("1_nthlb")
 theme_override_font_sizes/normal_font_size = 32
@@ -55,14 +56,16 @@ meta_underlined = false
 
 [node name="InfoContainer" type="Control" parent="." unique_id=273610561]
 z_index = 2
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(1, 1e-05)
+pivot_offset = Vector2(0, 150)
 
 [node name="Panel" type="Panel" parent="InfoContainer" unique_id=910044068]
 layout_mode = 1
@@ -122,6 +125,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="meta_clicked" from="NameLabel" to="." method="_on_name_label_meta_clicked"]
-[connection signal="mouse_entered" from="NameLabel" to="." method="_on_name_label_mouse_entered"]
-[connection signal="mouse_exited" from="NameLabel" to="." method="_on_name_label_mouse_exited"]

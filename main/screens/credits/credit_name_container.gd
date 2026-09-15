@@ -28,18 +28,20 @@ var icon : Texture:
 		icon_rect.texture = icon
 		icon_panel.visible = icon != null
 
-func _on_name_label_mouse_entered():
+func _on_mouse_entered():
 	var t := create_tween()
 	t.set_trans(Tween.TRANS_QUAD)
 	t.set_ease(Tween.EASE_IN_OUT)
 	t.tween_property(info_container, "scale", Vector2(1,1), animation_time)
+	t.parallel().tween_property(self, "custom_minimum_size", Vector2(0, 50 + info_container.size.y), animation_time)
 
 
-func _on_name_label_mouse_exited():
+func _on_mouse_exited():
 	var t := create_tween()
 	t.set_trans(Tween.TRANS_QUAD)
 	t.set_ease(Tween.EASE_IN_OUT)
 	t.tween_property(info_container, "scale", Vector2(1,0), animation_time)
+	t.parallel().tween_property(self, "custom_minimum_size", Vector2(0, 50), animation_time)
 
 
 func _on_name_label_meta_clicked(meta):
