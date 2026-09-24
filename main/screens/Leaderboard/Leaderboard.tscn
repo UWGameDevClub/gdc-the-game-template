@@ -141,6 +141,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 leaderboard_name = "ALL TIME"
 
+[node name="EventLeaderboardList" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1492462172 instance=ExtResource("4_0jj8b")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+leaderboard_name = "CLUBS FAIR"
+
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1468535506]
 layout_mode = 2
 
@@ -200,11 +206,8 @@ text = "RETURN
 script = ExtResource("2_3g33b")
 next_screen = 1
 
-[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=875787176]
-script = ExtResource("6_1whd7")
-
 [node name="UpdateTimer" type="Timer" parent="." unique_id=859879011]
-wait_time = 10.0
+wait_time = 120.0
 autostart = true
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

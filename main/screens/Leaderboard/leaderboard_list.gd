@@ -35,15 +35,20 @@ func highlight_name(name : String):
 		c.highlight_score(name == scr_res.player_name)
 
 
+func show_loading_notification():
+	loading_notification.show()
+	score_container.hide()
+
+
 func display_score_list(scores:Array[ScoreResource]):
 	_use_colour_A = true
 	for c in score_container.get_children(): c.queue_free()
 	empty_notification.hide()
-	loading_notification.show()
 	_rank = 1
 	scores.sort_custom(func(a:ScoreResource, b:ScoreResource):return a.score > b.score)
 	for s in scores:
 		_add_new_score(s)
 	loading_notification.hide()
+	score_container.show()
 	if len(scores) == 0:
 		empty_notification.show()

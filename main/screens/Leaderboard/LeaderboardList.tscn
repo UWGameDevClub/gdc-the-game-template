@@ -74,6 +74,15 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
+[node name="ScrollContainer" type="ScrollContainer" parent="OuterPanel/MarginContainer/InnerPanel/MarginContainer" unique_id=2143816373]
+layout_mode = 2
+theme = ExtResource("1_ff4wd")
+
+[node name="ScoreContainer" type="VBoxContainer" parent="OuterPanel/MarginContainer/InnerPanel/MarginContainer/ScrollContainer" unique_id=1714136558]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
 [node name="LoadingNotification" type="Control" parent="OuterPanel/MarginContainer/InnerPanel/MarginContainer" unique_id=2060602103]
 layout_mode = 2
 
@@ -108,12 +117,3 @@ theme_override_font_sizes/font_size = 32
 text = "NO DATA"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ScrollContainer" type="ScrollContainer" parent="OuterPanel/MarginContainer/InnerPanel/MarginContainer" unique_id=2143816373]
-layout_mode = 2
-theme = ExtResource("1_ff4wd")
-
-[node name="ScoreContainer" type="VBoxContainer" parent="OuterPanel/MarginContainer/InnerPanel/MarginContainer/ScrollContainer" unique_id=1714136558]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 0

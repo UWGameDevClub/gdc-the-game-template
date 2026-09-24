@@ -1,6 +1,8 @@
 class_name LocalDataManager
 extends Node
 
+signal local_leaderboard_updated(local_lb : Array[ScoreResource])
+
 @export var save_file_path : String
 
 var _local_scores : ScoreArrayResource
@@ -12,6 +14,9 @@ func _ready():
 func add_score(res : ScoreResource):
 	_local_scores.append(res)
 	_save_scores()
+
+func emit_scores():
+	local_leaderboard_updated.emit(get_scores())
 
 func get_scores()->Array[ScoreResource]:
 	if _local_scores != null:
