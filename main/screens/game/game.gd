@@ -82,6 +82,8 @@ var default_timer : MicroGameTimer
 var game_timed_out : bool
 var game_over : bool
 
+var first_round : bool = false
+var first_round_bonus : float = 5
 var lives = 3
 var score = 0
 var speed_mult = 1
@@ -116,12 +118,25 @@ func on_screen_enter(screen):
 	score = 0
 	speed_mult = 1
 	speed_up_in = speed_up_frequency
+	first_round = true
 
 	_set_time_scale(1)
 
 	current_game = null
 	default_timer = null
 	play_next_game()
+
+func get_duration():
+	var duration = current_game.game_duration
+	if first_round:
+		
+		if game_selector.current_game.first_round_bonus_time >= 0:
+			duration += game_selector.current_game.first_round_bonus_time
+		elif current_game.timer_type == MicroGame.DefaultTimerType.DefaultWithUI:
+			duration += first_round_bonus
+			duration = min(duration, 9)
+		
+	return duration
 
 func on_screen_exit(screen):
 	if screen != GameManager.Screen.Game:
@@ -203,7 +218,7 @@ func play_instruction_sequence(info : MicroGameInfo):
 	
 	# some games set the value in on ready so i need to run this here
 	if default_timer and default_timer.has_method("set_display_time"):
-		default_timer.set_display_time(current_game.game_duration)
+		default_timer.set_display_time(get_duration())
 			
 	await play_wipe(
 		screen_wipe, tex2d,
@@ -293,8 +308,9 @@ func start_game():
 		current_game.enter_animation.emit()
 		await get_tree().create_timer(current_game.pre_game_time).timeout
 	
+	
 	current_game.start.emit()
-	current_game.timer.start(current_game.game_duration)
+	current_game.timer.start(get_duration())
 
 func on_game_timeout():
 	if game_over:
@@ -330,6 +346,8 @@ func on_game_end(win: bool):
 			if speed_up_in <= 0:
 				speed_mult += speed_inc
 				speed_up_in = speed_up_frequency
+				
+				first_round = false
 				
 				await get_tree().create_timer(1.5).timeout
 				await play_speedup_animation(speed_up)

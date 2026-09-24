@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c4oipvvn88xbe" path="res://main/main.gd" id="1_53q0u"]
 [ext_resource type="PackedScene" uid="uid://clbdjqcokpicy" path="res://main/screens/Leaderboard/LocalDataManager.tscn" id="2_0i4oc"]
 [ext_resource type="PackedScene" uid="uid://dxwa1yvb1t7sa" path="res://main/screens/game/game.tscn" id="2_4dugh"]
-[ext_resource type="PackedScene" uid="uid://cboijaiisse1" path="res://main/screens/Leaderboard/GlobalDataManager.tscn" id="3_bsumw"]
+[ext_resource type="PackedScene" path="res://main/screens/Leaderboard/GlobalDataManager.tscn" id="3_bsumw"]
 [ext_resource type="PackedScene" uid="uid://bjgbr1x8cwahg" path="res://main/screens/Leaderboard/ScoreCreator.tscn" id="3_grrlh"]
 [ext_resource type="PackedScene" uid="uid://3gmyrempxmn4" path="res://main/screens/title_screen/title_screen.tscn" id="7_4dugh"]
 [ext_resource type="PackedScene" uid="uid://cwwjmkhexeoxu" path="res://main/screens/Leaderboard/Leaderboard.tscn" id="8_67ri8"]

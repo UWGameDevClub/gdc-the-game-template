@@ -33,3 +33,5 @@ class_name MicroGameInfo
 @export_group("Advanced")
 @export var custom_credit_display : PackedScene = null
 @export var custom_credit_settings : Resource = null
+@export var first_round_bonus_time : int = -1
+@export var true_game_duration : float = -1

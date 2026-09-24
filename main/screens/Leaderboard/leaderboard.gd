@@ -9,14 +9,20 @@ signal request_local_leaderboards
 @onready var event_leaderboard := $MarginContainer/VBoxContainer/HBoxContainer/EventLeaderboardList
 @onready var name_input := $MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/CenterContainer/NameInput
 
-
+@onready var main_menu_button := $MarginContainer/VBoxContainer/MarginContainer/GoToMainMenu
 
 func _ready() -> void:
 	super()
-	if OS.has_feature("public-leaderboard") or is_public_display:
+	if OS.has_feature("public-leaderboard"):
 		local_leaderboard.hide()
 		main_menu_button.hide()
-		qr_codes.show()
+		alltime_leaderboard.hide()
+		event_leaderboard.show()
+		#qr_codes.show()
+	if OS.has_feature("event"):
+		event_leaderboard.show()
+		alltime_leaderboard.hide()
+		
 
 func update_local(scores:Array[ScoreResource]):
 	local_leaderboard.display_score_list(scores)

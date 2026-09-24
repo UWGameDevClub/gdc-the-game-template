@@ -91,7 +91,7 @@ instructions = ExtResource("7_a2qi7")
 selection = ExtResource("8_a2qi7")
 game_selector = SubResource("Resource_bsumw")
 game_loader = SubResource("Resource_gmayk")
-speed_up_frequency = 1
+speed_up_frequency = 19
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=778280988]
 
