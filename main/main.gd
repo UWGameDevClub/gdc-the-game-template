@@ -27,6 +27,14 @@ func _ready() -> void:
 	
 	GameManager.request_transition_to.connect(change_screen)
 
+func _input(event : InputEvent):
+	if OS.has_feature("fullscreen"):
+		if event.is_action_pressed("fullscreen"):
+			if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			else:
+				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+				
 func change_screen(next : GameManager.Screen): 
 	if current_screen == next:
 		return
