@@ -40,6 +40,7 @@ func _on_visibility_changed():
 	if visible:
 		alltime_leaderboard.show_loading_notification()
 		today_leaderboard.show_loading_notification()
+		event_leaderboard.show_loading_notification()
 		_get_local_leaderboards()
 		_get_online_leaderboards()
 		

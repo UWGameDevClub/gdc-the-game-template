@@ -37,6 +37,7 @@ func highlight_name(name : String):
 
 func show_loading_notification():
 	loading_notification.show()
+	empty_notification.hide()
 	score_container.hide()
 
 
