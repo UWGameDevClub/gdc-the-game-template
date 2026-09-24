@@ -14,14 +14,13 @@ signal request_local_leaderboards
 @export var local_data_manager : LocalDataManager
 @export var is_public_display : bool = false
 
-const TALO_alltime_leaderboard_name : String = "All Time Leaderboard"
-const TALO_daily_leaderboard_name : String = "Daily Leaderboard"
-
 
 func _ready() -> void:
 	super()
 	if is_public_display:
 		local_leaderboard.hide()
+		today_leaderboard.hide()
+		event_leaderboard.show()
 		main_menu_button.hide()
 		qr_codes.show()
 

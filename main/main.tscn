@@ -106,6 +106,7 @@ script = ExtResource("1_53q0u")
 [node name="LocalDataManager" parent="." unique_id=1820790310 instance=ExtResource("2_0i4oc")]
 
 [node name="GlobalDataManager" parent="." unique_id=709546985 instance=ExtResource("3_bsumw")]
+use_event_leaderboard = true
 
 [node name="Game" type="CanvasLayer" parent="." unique_id=1715780943]
 

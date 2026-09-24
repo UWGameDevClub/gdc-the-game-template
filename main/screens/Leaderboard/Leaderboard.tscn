@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://byuqc5wjgbfrh" path="res://main/screens/Leaderboard/LeaderboardList.tscn" id="4_0jj8b"]
 [ext_resource type="Texture2D" uid="uid://c2uc26j4x88dc" path="res://main/screens/Leaderboard/discord_invite_qr_code_cropped.png" id="5_mduo7"]
 [ext_resource type="Script" uid="uid://ftx6f41o2bua" path="res://main/screens/Leaderboard/name_input.gd" id="5_pig7g"]
-[ext_resource type="Script" uid="uid://cs26xqu5v5m2k" path="res://main/screens/Leaderboard/connection_test.gd" id="6_1whd7"]
 [ext_resource type="Texture2D" uid="uid://cvhdxuq84m121" path="res://main/screens/Leaderboard/itch_page_qr_code_cropped.png" id="6_gfk5p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpeqc"]
@@ -75,6 +74,11 @@ text = "LEADERBOARD"
 layout_mode = 2
 theme_override_constants/separation = 20
 
+[node name="EventLeaderboardList" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1492462172 instance=ExtResource("4_0jj8b")]
+layout_mode = 2
+size_flags_horizontal = 3
+leaderboard_name = "CLUBS FAIR"
+
 [node name="LocalLeaderboardList" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1963682393 instance=ExtResource("4_0jj8b")]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -140,12 +144,6 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 leaderboard_name = "ALL TIME"
-
-[node name="EventLeaderboardList" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1492462172 instance=ExtResource("4_0jj8b")]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-leaderboard_name = "CLUBS FAIR"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1468535506]
 layout_mode = 2
