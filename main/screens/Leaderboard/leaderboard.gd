@@ -8,7 +8,22 @@ signal request_local_leaderboards
 @onready var alltime_leaderboard := $MarginContainer/VBoxContainer/HBoxContainer/AllTimeLeaderboardList
 @onready var event_leaderboard := $MarginContainer/VBoxContainer/HBoxContainer/EventLeaderboardList
 @onready var name_input := $MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/CenterContainer/NameInput
+@onready var qr_codes := $MarginContainer/VBoxContainer/HBoxContainer/QRCodeContainer
+@onready var main_menu_button := $MarginContainer/VBoxContainer/MarginContainer/GoToMainMenu
 
+@export var local_data_manager : LocalDataManager
+@export var is_public_display : bool = false
+
+const TALO_alltime_leaderboard_name : String = "All Time Leaderboard"
+const TALO_daily_leaderboard_name : String = "Daily Leaderboard"
+
+
+func _ready() -> void:
+	super()
+	if is_public_display:
+		local_leaderboard.hide()
+		main_menu_button.hide()
+		qr_codes.show()
 
 func update_local(scores:Array[ScoreResource]):
 	local_leaderboard.display_score_list(scores)
