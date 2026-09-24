@@ -8,7 +8,7 @@ const TALO_event_leaderboard_name : String = "Clubs Fair Leaderboard"
 
 
 @onready var con_test := $ConnectionTest
-@export var use_event_leaderboard : bool = false
+@export var use_event_leaderboard : bool = OS.has_feature("event")
 
 func add_score(scr_res : ScoreResource):
 	con_test.test_connection()
@@ -17,7 +17,7 @@ func add_score(scr_res : ScoreResource):
 		await Talo.players.identify("username", scr_res.player_name)
 		var res_alltime := await Talo.leaderboards.add_entry(TALO_alltime_leaderboard_name, scr_res.score)
 		var res_daily := await Talo.leaderboards.add_entry(TALO_daily_leaderboard_name, scr_res.score)
-		if OS.has_feature("event") or use_event_leaderboard:
+		if use_event_leaderboard:
 			var res_event := await Talo.leaderboards.add_entry(TALO_event_leaderboard_name, scr_res.score)
 	
 
