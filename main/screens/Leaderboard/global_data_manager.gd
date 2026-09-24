@@ -17,7 +17,7 @@ func add_score(scr_res : ScoreResource):
 		await Talo.players.identify("username", scr_res.player_name)
 		var res_alltime := await Talo.leaderboards.add_entry(TALO_alltime_leaderboard_name, scr_res.score)
 		var res_daily := await Talo.leaderboards.add_entry(TALO_daily_leaderboard_name, scr_res.score)
-		if use_event_leaderboard:
+		if OS.has_feature("event") or use_event_leaderboard:
 			var res_event := await Talo.leaderboards.add_entry(TALO_event_leaderboard_name, scr_res.score)
 	
 
