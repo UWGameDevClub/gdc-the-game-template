@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://yeppshwrlxm7"]
+
+[ext_resource type="Script" uid="uid://blxxcjhrgy7qo" path="res://shared/transitions/speed_up/speed_up1/speed_up_1.gd" id="1_00x7s"]
+[ext_resource type="Texture2D" uid="uid://c6s3imkp0ks7a" path="res://shared/transitions/speed_up/speed_up1/speed_up_1.png" id="1_4y7i4"]
+
+[node name="SpeedUp1" type="Control" unique_id=1946947054]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_00x7s")
+
+[node name="icon" type="CenterContainer" parent="." unique_id=764285027]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Texture" type="TextureRect" parent="icon" unique_id=225082561]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_4y7i4")

@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://ccqkcbfi77v8e" path="res://main/screens/game/game_selector.gd" id="5_8damv"]
 [ext_resource type="PackedScene" uid="uid://0jno1t6fnkp0" path="res://shared/transitions/win_lose_screens/win1.tscn" id="5_cuboj"]
 [ext_resource type="PackedScene" uid="uid://cy01vpftehrbq" path="res://shared/transitions/win_lose_screens/lose1/lose1.tscn" id="6_fnicf"]
+[ext_resource type="PackedScene" uid="uid://yeppshwrlxm7" path="res://shared/transitions/speed_up/speed_up1/speed_up_1.tscn" id="6_gmayk"]
 [ext_resource type="PackedScene" uid="uid://ijetl8g4n1kc" path="res://shared/transitions/instruction_popup/default_instruction_popup/default_instruction_popup.tscn" id="7_a2qi7"]
 [ext_resource type="Resource" uid="uid://cjgrd0kg1u5gp" path="res://main/screens/game/selection.tres" id="8_a2qi7"]
 [ext_resource type="PackedScene" uid="uid://b0evmwm0qm4pd" path="res://main/screens/game/audio_interface/music_player.tscn" id="11_a2qi7"]
@@ -84,12 +85,13 @@ default_timer_no_UI = ExtResource("3_s0qyw")
 default_timer_with_UI = ExtResource("2_mgkyc")
 screen_wipe = ExtResource("4_a2qi7")
 score_up = ExtResource("5_cuboj")
+speed_up = ExtResource("6_gmayk")
 lives_down = ExtResource("6_fnicf")
 instructions = ExtResource("7_a2qi7")
 selection = ExtResource("8_a2qi7")
 game_selector = SubResource("Resource_bsumw")
 game_loader = SubResource("Resource_gmayk")
-speed_up_frequency = 19
+speed_up_frequency = 1
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=778280988]
 

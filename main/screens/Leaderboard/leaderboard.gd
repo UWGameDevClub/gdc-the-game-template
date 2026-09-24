@@ -11,6 +11,14 @@ extends ScreenRoot
 const TALO_alltime_leaderboard_name : String = "All Time Leaderboard"
 const TALO_daily_leaderboard_name : String = "Daily Leaderboard"
 
+
+func _ready() -> void:
+	super()
+	if OS.has_feature("public-leaderboard") or is_public_display:
+		local_leaderboard.hide()
+		main_menu_button.hide()
+		qr_codes.show()
+
 func update_local(scores:Array[ScoreResource]):
 	local_leaderboard.display_score_list(scores)
 

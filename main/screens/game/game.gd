@@ -249,7 +249,16 @@ func play_end_sequence(packed_scene, old, new):
 	if win.has_method("animate_value_change"):
 		await win.animate_value_change(old, new)
 	
-	await get_tree().create_timer(1.5).timeout
+
+func play_speedup_animation(packed_scene):
+	$GameLayer.visible = false
+	$InfoLayer.visible = true 
+	
+	var animation = packed_scene.instantiate()
+	$InfoLayer.add_child(animation)
+	
+	if animation.has_method("play"):
+		await animation.play()
 
 
 func start_game():
@@ -313,24 +322,25 @@ func on_game_end(win: bool):
 		print("playing end seq")
 		if win:
 			
-			speed_up_in -= 1
-			if speed_up_in <= 0:
-				speed_mult += speed_inc
-				speed_up_in = speed_up_frequency
-			
 			await play_end_sequence(score_up, score, score + 1)
 			
 			score += 1
 			
-			#await speed_up_transtion.execute(
-				#make_transition_context(), 
-				#SpeedUpEvent.new())
-			
+			speed_up_in -= 1
+			if speed_up_in <= 0:
+				speed_mult += speed_inc
+				speed_up_in = speed_up_frequency
+				
+				await get_tree().create_timer(1.5).timeout
+				await play_speedup_animation(speed_up)
+				await get_tree().create_timer(0.5).timeout
+				_set_time_scale(speed_mult)
 			
 		else:
 			await play_end_sequence(lives_down, lives, lives - 1)
 			lives -= 1
 			
+		await get_tree().create_timer(1.5).timeout
 		
 	play_next_game()
 
