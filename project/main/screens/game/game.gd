@@ -194,41 +194,21 @@ func setup_micro_game():
 	if not loaded_games.has(current_info):
 		loaded_games[current_info] = MicroGameBuilder.new()
 		loaded_games[current_info].set_info(current_info)
-		
-		
-	var info = game_selector.current_game
-	
-	if info.timer_type != MicroGameInfo.TimerType.CustomTimer:
-		default_timer = null
-		
-		default_timer = default_timers[info.timer_type].instantiate()
-		$GameLayer.add_child(default_timer)
-	
-	if info.width > 0 and info.height > 0:
-		game_viewport.size_2d_override.x = info.width
-		game_viewport.size_2d_override.y = info.height
-	
-	else:
-		game_viewport.size_2d_override.x = 0
-		game_viewport.size_2d_override.y = 0
+		loaded_games[current_info].set_audio_service(AudioService.new(music_player))
+		loaded_games[current_info].default_timer_no_UI = default_timer_no_UI
+		loaded_games[current_info].default_timer_with_UI = default_timer_with_UI
+
+	loaded_games[current_info].set_run_data(run_data)
+	loaded_games[current_info].load_instance()
 
 
 func unload_game():
-	if default_timer:
-		default_timer.queue_free()
-		default_timer = null
+	var current_info = game_selector.current_game
+	loaded_games[current_info].unload_instance()
 	
-	#if current_context:
-		#current_context._pause_music.disconnect(pause_music)
-		#current_context._resume_music.disconnect(resume_music)
-		#current_context.unload_game()
-		#current_context = null
-	#
 	game_viewport.size_2d_override.x = 0
 	game_viewport.size_2d_override.y = 0
-	
-	if current_game:
-		current_game.queue_free()
+
 
 func start_game():
 	print(
@@ -238,13 +218,14 @@ func start_game():
 	
 	game_over = false
 	
-	current_game = game_selector.current_game.game_scene.instantiate()
-	if current_game == null:
+	var current_info = game_selector.current_game
+	var current_instance = loaded_games[current_info].loaded_instance
+	if current_instance == null:
 		unload_game()
 		play_next_game()
 		return
 		
-	var error = current_game.connect("done", on_game_end)
+	var error = current_instance.connect("done", on_game_end)
 	if error != OK:
 		unload_game()
 		play_next_game()
@@ -259,7 +240,7 @@ func start_game():
 	else:
 		resume_music()
 	
-	if game_selector.current_game.mouse_hidden:
+	if game_selector.current_game.start_with_mouse_hidden:
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 		
 	else:
@@ -288,8 +269,8 @@ func play_instruction_sequence(info : MicroGameInfo):
 	var tex2d = await capture_viewport()
 	await get_tree().create_timer(1.5).timeout
 	
-	game_viewport.add_child(current_game)
-		
+	loaded_games[game_selector.current_game].add_instance_to_scene($GameLayer, game_viewport)
+	
 	# some games set the value in on ready so i need to run this here
 	#if default_timer and default_timer.has_method("set_display_time"):
 		#default_timer.set_display_time(current_context.game_duration)
@@ -313,8 +294,9 @@ func play_end_sequence(packed_scene, old, new):
 		win.set_initial_value(old)
 	
 	unload_game()
-	if current_game:
-		await get_tree().process_frame
+	
+	## why is this here?
+	await get_tree().process_frame
 	
 	_reset_cursor()
 	resume_music()
@@ -343,7 +325,7 @@ func on_game_end(win: bool):
 	
 	_set_time_scale(run_data.speed_mult)
 	
-	if current_game:
+	if game_selector.current_game != null:
 		# this signal gets emitted when the context is ready for clean up
 		# hence we no longer need this here
 		#current_game.timer.stop()

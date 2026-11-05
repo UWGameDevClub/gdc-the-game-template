@@ -5,5 +5,10 @@
 
 [resource]
 script = ExtResource("1_fc5iw")
+title = "Test Game"
+authors = "Lexie"
+description = "This is just a test"
 game_scene = ExtResource("1_nyutt")
+control_format = 1
+start_with_mouse_hidden = true
 metadata/_custom_type_script = "uid://dciiueikp53p7"

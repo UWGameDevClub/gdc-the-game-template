@@ -77,4 +77,4 @@ rotation = -6.2831855
 scale = Vector2(1.8, 1.8)
 sprite_frames = SubResource("SpriteFrames_smetd")
 animation = &"wipe"
-speed_scale = 2.0
+speed_scale = 4.0

@@ -18,7 +18,8 @@ var expired: bool:
 var _expire_timer : Timer
 var _tick_timer : Timer
 
-
+func elasped_time():
+	return _total_duration - _expire_timer.time_left
 
 func _ready() -> void:
 	_expired = true
@@ -26,6 +27,7 @@ func _ready() -> void:
 	if not _expire_timer:
 		_expire_timer = Timer.new()
 		add_child(_expire_timer)
+		_expire_timer.autostart = false
 
 	if not _tick_timer:
 		_tick_timer = Timer.new()
