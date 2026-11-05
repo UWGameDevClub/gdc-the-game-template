@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://btj1bpfkwdc2g"]
+
+[ext_resource type="Script" uid="uid://clq4ilaivn7xd" path="res://main/screens/Leaderboard/score_display.gd" id="1_5svn1"]
+[ext_resource type="FontFile" uid="uid://k63t7wblivm1" path="res://shared/fonts/BoldsPixels.ttf" id="2_kn32s"]
+
+[sub_resource type="Gradient" id="Gradient_5svn1"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kn32s"]
+gradient = SubResource("Gradient_5svn1")
+width = 32
+height = 32
+
+[sub_resource type="Gradient" id="Gradient_kn32s"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.83959043, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4iipb"]
+gradient = SubResource("Gradient_kn32s")
+width = 1024
+height = 8
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[node name="ScoreDisplay" type="Control" unique_id=890221211]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_5svn1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2140901754]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13682577, 0.13682574, 0.13682571, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=368028611]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Left" type="Control" parent="HBoxContainer" unique_id=718035666]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Left" unique_id=672879110]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MedalTextureRect" type="TextureRect" parent="HBoxContainer/Left/HBoxContainer" unique_id=425254967]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_kn32s")
+stretch_mode = 2
+
+[node name="RankLabel" type="Label" parent="HBoxContainer/Left/HBoxContainer" unique_id=22125704]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("2_kn32s")
+theme_override_font_sizes/font_size = 20
+text = "1."
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/Left/HBoxContainer" unique_id=578413433]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("2_kn32s")
+theme_override_font_sizes/font_size = 20
+text = "TESTNAME"
+vertical_alignment = 1
+
+[node name="Right" type="Control" parent="HBoxContainer" unique_id=2142585088]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Right" unique_id=1276435374]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreLabel" type="Label" parent="HBoxContainer/Right/CenterContainer" unique_id=382201430]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("2_kn32s")
+theme_override_font_sizes/font_size = 20
+text = "0"
+vertical_alignment = 1
+
+[node name="Highlight" type="TextureRect" parent="." unique_id=1593437494]
+visible = false
+modulate = Color(1, 0.8117647, 0.46666667, 0.74509805)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_4iipb")
+expand_mode = 1

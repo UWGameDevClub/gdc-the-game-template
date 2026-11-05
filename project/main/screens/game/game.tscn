@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://dxwa1yvb1t7sa"]
+
+[ext_resource type="Script" uid="uid://h8nx6qhkmjcj" path="res://main/screens/game/game.gd" id="1_5ttid"]
+[ext_resource type="PackedScene" uid="uid://b4jstj5m6fgq4" path="res://shared/timers/default_timer_ui/default_timer_ui.tscn" id="2_mgkyc"]
+[ext_resource type="PackedScene" uid="uid://wn163avtbdhb" path="res://shared/timers/default_timer_v1/default_timer.tscn" id="3_s0qyw"]
+[ext_resource type="PackedScene" uid="uid://c1ayqr1rwdxr3" path="res://shared/transitions/wipes/star_wipe/star-wipe.tscn" id="4_a2qi7"]
+[ext_resource type="Script" uid="uid://ccqkcbfi77v8e" path="res://main/screens/game/game_selector.gd" id="5_8damv"]
+[ext_resource type="PackedScene" uid="uid://0jno1t6fnkp0" path="res://shared/transitions/win_lose_screens/win1.tscn" id="5_cuboj"]
+[ext_resource type="PackedScene" uid="uid://cy01vpftehrbq" path="res://shared/transitions/win_lose_screens/lose1/lose1.tscn" id="6_fnicf"]
+[ext_resource type="PackedScene" uid="uid://ijetl8g4n1kc" path="res://shared/transitions/instruction_popup/default_instruction_popup/default_instruction_popup.tscn" id="7_a2qi7"]
+[ext_resource type="Resource" uid="uid://bcdftakt7htif" path="res://micro_games/test_selection.tres" id="8_cuboj"]
+[ext_resource type="PackedScene" uid="uid://b0evmwm0qm4pd" path="res://main/screens/game/audio_interface/music_player.tscn" id="11_a2qi7"]
+[ext_resource type="FontFile" uid="uid://k63t7wblivm1" path="res://shared/fonts/BoldsPixels.ttf" id="11_fnicf"]
+[ext_resource type="Script" uid="uid://c70t25yj58aow" path="res://main/screens/game/practice_mode_hint.gd" id="11_gmayk"]
+
+[sub_resource type="Resource" id="Resource_bsumw"]
+script = ExtResource("5_8damv")
+metadata/_custom_type_script = "uid://ccqkcbfi77v8e"
+
+[sub_resource type="Animation" id="Animation_5rsm8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4exyp"]
+resource_name = "label_anim"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.3529412), Color(1, 1, 1, 0.6156863)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gmayk"]
+_data = {
+&"RESET": SubResource("Animation_5rsm8"),
+&"label_anim": SubResource("Animation_4exyp")
+}
+
+[sub_resource type="Gradient" id="Gradient_fnicf"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.9964413, 1)
+colors = PackedColorArray(0, 0.22745098, 0.25490198, 1, 0, 0.22745098, 0.25490198, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gmayk"]
+gradient = SubResource("Gradient_fnicf")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Game" type="Control" unique_id=189926272]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5ttid")
+default_timer_no_UI = ExtResource("3_s0qyw")
+default_timer_with_UI = ExtResource("2_mgkyc")
+screen_wipe = ExtResource("4_a2qi7")
+score_up = ExtResource("5_cuboj")
+lives_down = ExtResource("6_fnicf")
+instructions = ExtResource("7_a2qi7")
+selection = ExtResource("8_cuboj")
+game_selector = SubResource("Resource_bsumw")
+speed_up_frequency = 19
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=778280988]
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1982817392]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.96862745, 0.91764706, 1)
+
+[node name="GameLayer" type="CanvasLayer" parent="." unique_id=1289782656]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GameLayer" unique_id=1483915721]
+offset_right = 1152.0
+offset_bottom = 648.0
+stretch = true
+
+[node name="GameViewport" type="SubViewport" parent="GameLayer/SubViewportContainer" unique_id=330540801]
+unique_name_in_owner = true
+handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+physics_object_picking = true
+size = Vector2i(1152, 648)
+size_2d_override = Vector2i(1920, 1080)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="InfoLayer" type="CanvasLayer" parent="." unique_id=1275393343]
+layer = 2
+
+[node name="TransitionOverlay" type="CanvasLayer" parent="." unique_id=346315885]
+layer = 3
+
+[node name="PracticeLayer" type="CanvasLayer" parent="." unique_id=982490130]
+layer = 4
+
+[node name="PracticeModeHint" type="Control" parent="PracticeLayer" unique_id=1084014007]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("11_gmayk")
+
+[node name="Label" type="Label" parent="PracticeLayer/PracticeModeHint" unique_id=587521232]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("11_fnicf")
+theme_override_font_sizes/font_size = 32
+text = "PRACTICE MODE"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PracticeLayer/PracticeModeHint" unique_id=563896658]
+libraries/ = SubResource("AnimationLibrary_gmayk")
+autoplay = &"label_anim"
+speed_scale = 0.5
+
+[node name="CenterContainer" type="CenterContainer" parent="PracticeLayer/PracticeModeHint" unique_id=1316567024]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="QuitProgressBar" type="TextureProgressBar" parent="PracticeLayer/PracticeModeHint/CenterContainer" unique_id=404841502]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+mouse_filter = 2
+max_value = 1.0
+step = 0.01
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_gmayk")
+
+[node name="MusicPlayer" parent="." unique_id=929919593 instance=ExtResource("11_a2qi7")]
+bus = &"bgm_muffled"
+
+[connection signal="force_quit_game" from="PracticeLayer/PracticeModeHint" to="." method="force_quit_game"]
+[connection signal="visibility_changed" from="PracticeLayer/PracticeModeHint" to="PracticeLayer/PracticeModeHint" method="_on_visibility_changed"]

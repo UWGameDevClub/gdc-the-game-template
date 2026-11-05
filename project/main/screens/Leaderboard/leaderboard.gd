@@ -1,0 +1,96 @@
+extends ScreenRoot
+
+signal request_online_leaderboards
+signal request_local_leaderboards
+
+@onready var local_leaderboard := $MarginContainer/VBoxContainer/HBoxContainer/LocalLeaderboardList
+@onready var today_leaderboard := $MarginContainer/VBoxContainer/HBoxContainer/TodayLeaderboardList
+@onready var alltime_leaderboard := $MarginContainer/VBoxContainer/HBoxContainer/AllTimeLeaderboardList
+@onready var event_leaderboard := $MarginContainer/VBoxContainer/HBoxContainer/EventLeaderboardList
+@onready var name_input := $MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/CenterContainer/NameInput
+@onready var qr_codes := $MarginContainer/VBoxContainer/HBoxContainer/QRCodeContainer
+@onready var main_menu_button := $MarginContainer/VBoxContainer/MarginContainer/GoToMainMenu
+
+@export var local_data_manager : LocalDataManager
+@export var is_public_display : bool = false
+
+
+func _ready() -> void:
+	super()
+	if is_public_display:
+		local_leaderboard.hide()
+		today_leaderboard.hide()
+		event_leaderboard.show()
+		main_menu_button.hide()
+		qr_codes.show()
+	else:
+		main_menu_button.show()
+		local_leaderboard.show()
+		
+		today_leaderboard.hide()
+		event_leaderboard.hide()
+		alltime_leaderboard.hide()
+		
+
+func update_local(scores:Array[ScoreResource]):
+	local_leaderboard.display_score_list(scores)
+
+func update_today(scores:Array[ScoreResource]):
+	today_leaderboard.display_score_list(scores)
+
+func update_alltime(scores:Array[ScoreResource]):
+	alltime_leaderboard.display_score_list(scores)
+
+func update_event(scores:Array[ScoreResource]):
+	event_leaderboard.display_score_list(scores)
+
+func _on_visibility_changed():
+	if visible:
+		alltime_leaderboard.show_loading_notification()
+		today_leaderboard.show_loading_notification()
+		_get_local_leaderboards()
+		_get_online_leaderboards()
+		
+
+func _get_online_leaderboards():
+	request_online_leaderboards.emit()
+
+func _get_local_leaderboards():
+	request_local_leaderboards.emit()
+
+func _build_online_entries(daily_list : Array[ScoreResource], alltime_list : Array[ScoreResource], event_list : Array[ScoreResource]):
+	update_alltime(alltime_list)
+	update_today(daily_list)
+	update_event(event_list)
+	alltime_leaderboard.highlight_name(name_input.text)
+	today_leaderboard.highlight_name(name_input.text)
+	event_leaderboard.highlight_name(name_input.text)
+
+func _build_local_entries(local_list : Array[ScoreResource]):
+	update_local(local_list)
+	local_leaderboard.highlight_name(name_input.text)
+	
+
+
+func highlight_score(name:String):
+	local_leaderboard.highlight_name(name)
+	today_leaderboard.highlight_name(name)
+	alltime_leaderboard.highlight_name(name)
+	event_leaderboard.highlight_name(name)
+
+
+func _on_name_input_name_created():
+	highlight_score(name_input.text)
+
+
+func _on_name_input_name_deleted():
+	highlight_score(name_input.text)
+
+
+func search_by_score_resource(scr_res : ScoreResource):
+	if scr_res != null: name_input.text = scr_res.player_name
+
+
+func _on_update_timer_timeout():
+	if visible:
+		_get_online_leaderboards()

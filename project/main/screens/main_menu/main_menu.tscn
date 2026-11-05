@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://bvd8iqr5v1mwb"]
+
+[ext_resource type="Script" uid="uid://dt2ujqkwk8cgl" path="res://main/screens/main_menu/main_menu.gd" id="1_1nxtc"]
+[ext_resource type="Script" uid="uid://d1l1c5xva3lcu" path="res://main/screens/level_switch_button.gd" id="1_yd35k"]
+[ext_resource type="FontFile" uid="uid://k63t7wblivm1" path="res://shared/fonts/BoldsPixels.ttf" id="3_aqqjb"]
+[ext_resource type="Theme" uid="uid://d1iskwj0kgqo8" path="res://main/themes/menu_theme.tres" id="4_tsh8g"]
+[ext_resource type="Texture2D" uid="uid://dkjkr81drhemf" path="res://main/screens/main_menu/main menu devchan/pose-1.png" id="5_tsh8g"]
+[ext_resource type="Texture2D" uid="uid://8yscaej6k0gu" path="res://main/screens/main_menu/main menu devchan/pose-2.png" id="6_jp85e"]
+[ext_resource type="Texture2D" uid="uid://5kk8qy3ruskh" path="res://main/screens/main_menu/main menu devchan/pose-3.png" id="7_spauq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xhgqq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tsh8g"]
+font = ExtResource("3_aqqjb")
+font_size = 40
+font_color = Color(0, 0.22745098, 0.25490198, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jp85e"]
+line_spacing = 0.0
+font = ExtResource("3_aqqjb")
+font_size = 120
+font_color = Color(0, 0.22745098, 0.25490198, 1)
+
+[sub_resource type="Animation" id="Animation_tsh8g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dev_chan:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CompressedTexture2D_xhgqq")]
+}
+
+[sub_resource type="Animation" id="Animation_jp85e"]
+resource_name = "default"
+length = 15.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dev_chan:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_tsh8g"), ExtResource("6_jp85e"), ExtResource("7_spauq")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_spauq"]
+_data = {
+&"RESET": SubResource("Animation_tsh8g"),
+&"default": SubResource("Animation_jp85e")
+}
+
+[node name="Main Menu" type="Control" unique_id=546908478]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.005
+offset_right = 1.0050049
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1nxtc")
+
+[node name="dev_chan" type="TextureRect" parent="." unique_id=1877621570]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -293.34235
+offset_right = 1042.995
+offset_bottom = 293.34235
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_xhgqq")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1739062858]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -586.005
+offset_right = -57.005005
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="column" type="VBoxContainer" parent="MarginContainer" unique_id=348088128]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="title" type="VBoxContainer" parent="MarginContainer/column" unique_id=149555556]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = -10
+
+[node name="Label" type="Label" parent="MarginContainer/column/title" unique_id=1310691033]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "UW GAME DEV CLUB"
+label_settings = SubResource("LabelSettings_tsh8g")
+
+[node name="Label2" type="Label" parent="MarginContainer/column/title" unique_id=1826183704]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "THE GAME"
+label_settings = SubResource("LabelSettings_jp85e")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/column" unique_id=2121990068]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+
+[node name="options" type="VBoxContainer" parent="MarginContainer/column/MarginContainer" unique_id=251001082]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="GoToGame" type="Button" parent="MarginContainer/column/MarginContainer/options" unique_id=253436785]
+layout_mode = 2
+theme = ExtResource("4_tsh8g")
+theme_type_variation = &"FlatButton"
+text = "START
+
+"
+flat = true
+alignment = 0
+script = ExtResource("1_yd35k")
+next_screen = 3
+
+[node name="GoToLevelSelect" type="Button" parent="MarginContainer/column/MarginContainer/options" unique_id=2054199560]
+layout_mode = 2
+theme = ExtResource("4_tsh8g")
+theme_type_variation = &"FlatButton"
+text = "LEVEL SELECT
+"
+flat = true
+alignment = 0
+script = ExtResource("1_yd35k")
+next_screen = 2
+
+[node name="GoToLeaderboard" type="Button" parent="MarginContainer/column/MarginContainer/options" unique_id=1933501354]
+layout_mode = 2
+theme = ExtResource("4_tsh8g")
+theme_type_variation = &"FlatButton"
+text = "LEADERBOARD
+
+"
+flat = true
+alignment = 0
+script = ExtResource("1_yd35k")
+next_screen = 5
+
+[node name="GoToCredits3" type="Button" parent="MarginContainer/column/MarginContainer/options" unique_id=1002012489]
+visible = false
+layout_mode = 2
+theme = ExtResource("4_tsh8g")
+theme_type_variation = &"FlatButton"
+text = "CREDITS
+
+"
+flat = true
+alignment = 0
+script = ExtResource("1_yd35k")
+next_screen = 4
+
+[node name="background_animation" type="AnimationPlayer" parent="." unique_id=1945645526]
+libraries/ = SubResource("AnimationLibrary_spauq")

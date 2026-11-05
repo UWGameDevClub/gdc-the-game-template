@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://3gmyrempxmn4"]
+
+[ext_resource type="Script" uid="uid://debp21wfkun7o" path="res://main/screens/title_screen/title_screen.gd" id="1_i0hjq"]
+[ext_resource type="Texture2D" uid="uid://cq0ril8mb4k8y" path="res://main/screens/title_screen/Untitled_Artwork 160.png" id="3_i0hjq"]
+[ext_resource type="Shader" uid="uid://b61nj6hgu8p2v" path="res://main/screens/title_screen/sponge-wipe.gdshader" id="3_t5vr7"]
+[ext_resource type="FontFile" uid="uid://k63t7wblivm1" path="res://shared/fonts/BoldsPixels.ttf" id="4_i0hjq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bdu26"]
+shader = ExtResource("3_t5vr7")
+
+[sub_resource type="LabelSettings" id="LabelSettings_t5vr7"]
+font = ExtResource("4_i0hjq")
+font_size = 50
+font_color = Color(0, 0.22745098, 0.25490198, 1)
+
+[sub_resource type="Animation" id="Animation_i0hjq"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enter-label:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("enter-label:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_t5vr7"]
+resource_name = "enter-button"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enter-label:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.1, -0.16666667, 0, 0.16666667, 0, 1, -0.099999994, 0, 0, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("enter-label:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.1, -0.16666667, 0, 0.16666667, 0, 1, -0.11666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bdu26"]
+_data = {
+&"RESET": SubResource("Animation_i0hjq"),
+&"enter-button": SubResource("Animation_t5vr7")
+}
+
+[node name="TitleScreen" type="Control" unique_id=1552944673]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i0hjq")
+
+[node name="TitleArt" type="TextureRect" parent="." unique_id=873200028]
+material = SubResource("ShaderMaterial_bdu26")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_i0hjq")
+
+[node name="enter-label" type="Label" parent="." unique_id=505542983]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -356.0
+offset_top = 224.0
+offset_right = 112.0
+offset_bottom = 269.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset_ratio = Vector2(0.5, 0.76)
+text = "press any key to enter"
+label_settings = SubResource("LabelSettings_t5vr7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1430455207]
+libraries/ = SubResource("AnimationLibrary_bdu26")
+autoplay = &"enter-button"

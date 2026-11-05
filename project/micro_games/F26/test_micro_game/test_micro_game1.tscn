@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://df0hg1svnwnl"]
+
+[ext_resource type="Script" uid="uid://bpmm3we5jintr" path="res://micro_games/F26/test_micro_game/test_micro_game_1.gd" id="1_x4cn4"]
+[ext_resource type="Texture2D" uid="uid://dfb31vmpabfm1" path="res://icon.svg" id="2_ym6bt"]
+
+[node name="TestMicroGame1" type="Node2D" unique_id=1018004362]
+script = ExtResource("1_x4cn4")
+default_game_duration = 4.0
+post_game_time = 1.4
+lose_on_timeout = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=390164000]
+position = Vector2(577, 328)
+texture = ExtResource("2_ym6bt")
+
+[node name="Label" type="Label" parent="." unique_id=1981055016]
+offset_left = 508.0
+offset_top = 227.0
+offset_right = 655.0
+offset_bottom = 250.0
+text = "Press space to win!"

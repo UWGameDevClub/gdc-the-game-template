@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b4jstj5m6fgq4"]
+
+[ext_resource type="Script" uid="uid://ttwaj8r7i1vf" path="res://shared/timers/default_timer_ui/default_timer_ui.gd" id="1_e4xuu"]
+[ext_resource type="Script" uid="uid://bvevn42has1dp" path="res://main/screens/game/digits.gd" id="2_hx17u"]
+[ext_resource type="Texture2D" uid="uid://bbhlua0an0231" path="res://main/assets/digits/digit0.png" id="3_tm53m"]
+
+[node name="DefaultTimer" type="Control" unique_id=1741125020]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_e4xuu")
+tick_interval = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1620387404]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=601299798]
+layout_mode = 2
+
+[node name="DigitDisplay" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=2028552949]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = -10
+script = ExtResource("2_hx17u")
+metadata/_custom_type_script = "uid://bvevn42has1dp"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/DigitDisplay" unique_id=1320341099]
+layout_mode = 2
+texture = ExtResource("3_tm53m")
+
+[connection signal="tick" from="." to="." method="my_on_tick"]
+[connection signal="timeout" from="." to="." method="my_on_timeout"]

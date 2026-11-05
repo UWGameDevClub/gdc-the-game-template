@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://clbdjqcokpicy"]
+
+[ext_resource type="Script" uid="uid://bkibbsouqgojp" path="res://main/screens/Leaderboard/local_data_manager.gd" id="1_srng2"]
+
+[node name="LocalDataManager" type="Node" unique_id=1820790310]
+script = ExtResource("1_srng2")
+save_file_path = "user://local_scores.tres"

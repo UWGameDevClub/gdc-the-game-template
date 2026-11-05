@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MicroGameInfo" format=3 uid="uid://cph7yqrhlaau7"]
+
+[ext_resource type="Script" uid="uid://dciiueikp53p7" path="res://main/micro_game_interface/micro_game_info.gd" id="1_fc5iw"]
+[ext_resource type="PackedScene" uid="uid://df0hg1svnwnl" path="res://micro_games/F26/test_micro_game/test_micro_game1.tscn" id="1_nyutt"]
+
+[resource]
+script = ExtResource("1_fc5iw")
+title = "Test Game"
+authors = "Lexie"
+description = "This is just a test"
+game_scene = ExtResource("1_nyutt")
+control_format = 1
+start_with_mouse_hidden = true
+metadata/_custom_type_script = "uid://dciiueikp53p7"

@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://ijetl8g4n1kc"]
+
+[ext_resource type="Script" uid="uid://d3x134n2v8aik" path="res://shared/transitions/instruction_popup/default_instruction_popup/default_instruction_popup.gd" id="1_tslan"]
+[ext_resource type="Texture2D" uid="uid://kpfddjgqx7t3" path="res://shared/transitions/instruction_popup/default_instruction_popup/controls/Untitled_Artwork-4 11.png" id="2_jlhl0"]
+[ext_resource type="Texture2D" uid="uid://bvwq01bppipqr" path="res://shared/transitions/instruction_popup/default_instruction_popup/controls/Untitled_Artwork-1 30.png" id="3_tanxd"]
+[ext_resource type="Texture2D" uid="uid://cn1tkmb33p7cg" path="res://shared/transitions/instruction_popup/default_instruction_popup/controls/Untitled_Artwork-3 15.png" id="4_pvebm"]
+[ext_resource type="Texture2D" uid="uid://cg56y78outury" path="res://shared/transitions/instruction_popup/default_instruction_popup/controls/Untitled_Artwork-2 29.png" id="5_x6urj"]
+[ext_resource type="FontFile" uid="uid://k63t7wblivm1" path="res://shared/fonts/BoldsPixels.ttf" id="6_f4l1y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fc34k"]
+font = ExtResource("6_f4l1y")
+font_size = 75
+outline_size = 35
+outline_color = Color(0.050980393, 0.039215688, 0.039215688, 1)
+
+[node name="DefaultInstructionPopup" type="Control" unique_id=532424757]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tslan")
+
+[node name="inputs" type="Control" parent="." unique_id=111853702]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="mouse_only_input" type="CenterContainer" parent="inputs" unique_id=986166876]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="mouse_icon" type="TextureRect" parent="inputs/mouse_only_input" unique_id=2137816157]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_jlhl0")
+
+[node name="keyboard_only_input" type="CenterContainer" parent="inputs" unique_id=730128959]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="wasd_icon" type="TextureRect" parent="inputs/keyboard_only_input" unique_id=600751573]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("3_tanxd")
+
+[node name="keyboard_and_mouse_input" type="CenterContainer" parent="inputs" unique_id=2138515456]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -409.0
+offset_top = -150.0
+offset_right = 409.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="inputs/keyboard_and_mouse_input" unique_id=1595944539]
+layout_mode = 2
+
+[node name="keyboard_icon" type="TextureRect" parent="inputs/keyboard_and_mouse_input/HBoxContainer" unique_id=442769399]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_pvebm")
+
+[node name="plus_icon" type="TextureRect" parent="inputs/keyboard_and_mouse_input/HBoxContainer" unique_id=766097531]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_x6urj")
+stretch_mode = 2
+
+[node name="mouse_icon" type="TextureRect" parent="inputs/keyboard_and_mouse_input/HBoxContainer" unique_id=11721826]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_jlhl0")
+
+[node name="description" type="Label" parent="." unique_id=1155860524]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.5
+offset_top = -199.0
+offset_right = 206.5
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "Do the thing!"
+label_settings = SubResource("LabelSettings_fc34k")
+horizontal_alignment = 1
+vertical_alignment = 1

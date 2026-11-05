@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://byuqc5wjgbfrh"]
+
+[ext_resource type="Theme" uid="uid://d1iskwj0kgqo8" path="res://main/themes/menu_theme.tres" id="1_ff4wd"]
+[ext_resource type="Script" uid="uid://4lygl82cyn2x" path="res://main/screens/Leaderboard/leaderboard_list.gd" id="1_hahak"]
+[ext_resource type="FontFile" uid="uid://k63t7wblivm1" path="res://shared/fonts/BoldsPixels.ttf" id="2_hahak"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1whd7"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0.22745098, 0.25490198, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pig7g"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 0.99607843, 0.99607843, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="LeaderboardList" type="VBoxContainer" unique_id=1963682393]
+offset_right = 228.0
+offset_bottom = 446.0
+alignment = 1
+script = ExtResource("1_hahak")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=884163436]
+layout_mode = 2
+theme = ExtResource("1_ff4wd")
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("2_hahak")
+theme_override_font_sizes/font_size = 48
+
+[node name="OuterPanel" type="Panel" parent="." unique_id=1198999301]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1whd7")
+
+[node name="MarginContainer" type="MarginContainer" parent="OuterPanel" unique_id=786071536]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="InnerPanel" type="Panel" parent="OuterPanel/MarginContainer" unique_id=957530119]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pig7g")
+
+[node name="MarginContainer" type="MarginContainer" parent="OuterPanel/MarginContainer/InnerPanel" unique_id=712278748]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="OuterPanel/MarginContainer/InnerPanel/MarginContainer" unique_id=2143816373]
+layout_mode = 2
+theme = ExtResource("1_ff4wd")
+
+[node name="ScoreContainer" type="VBoxContainer" parent="OuterPanel/MarginContainer/InnerPanel/MarginContainer/ScrollContainer" unique_id=1714136558]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="LoadingNotification" type="Control" parent="OuterPanel/MarginContainer/InnerPanel/MarginContainer" unique_id=2060602103]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OuterPanel/MarginContainer/InnerPanel/MarginContainer/LoadingNotification" unique_id=1093634531]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("2_hahak")
+theme_override_font_sizes/font_size = 32
+text = "LOADING..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EmptyNotification" type="Control" parent="OuterPanel/MarginContainer/InnerPanel/MarginContainer" unique_id=1987959457]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OuterPanel/MarginContainer/InnerPanel/MarginContainer/EmptyNotification" unique_id=2073568538]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("2_hahak")
+theme_override_font_sizes/font_size = 32
+text = "NO DATA"
+horizontal_alignment = 1
+vertical_alignment = 1

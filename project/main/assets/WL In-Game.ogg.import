@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://denxaibsfhfw5"
+path="res://.godot/imported/WL In-Game.ogg-cca3e356e0cf40d013507e3f754acd6d.oggvorbisstr"
+
+[deps]
+
+source_file="res://main/assets/WL In-Game.ogg"
+dest_files=["res://.godot/imported/WL In-Game.ogg-cca3e356e0cf40d013507e3f754acd6d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

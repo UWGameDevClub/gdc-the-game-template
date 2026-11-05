@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://dxsuo1l0y86ew"]
+
+[ext_resource type="Script" uid="uid://d0oxpdq5j3ird" path="res://main/screens/level_select/game_select_button.gd" id="1_65n7y"]
+[ext_resource type="FontFile" uid="uid://k63t7wblivm1" path="res://shared/fonts/BoldsPixels.ttf" id="1_dokby"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6yyj"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 0.99607843, 0.99607843, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.22745098, 0.25490198, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a7p0i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x75de"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mukiu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ov26y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4iyrh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2xci"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.68235296, 0.85882354, 0.8784314, 0)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.47058824, 0.7882353, 0.8235294, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="GameSelectButton" type="Control" unique_id=1163753533]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+script = ExtResource("1_65n7y")
+
+[node name="Panel" type="Panel" parent="." unique_id=158593583]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r6yyj")
+
+[node name="Button" type="Button" parent="." unique_id=1003314611]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_colors/font_focus_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_colors/font_hover_color = Color(0, 0.4037086, 0.44828987, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_colors/font_disabled_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("1_dokby")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a7p0i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_x75de")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mukiu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ov26y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4iyrh")
+text = "TEST"
+
+[node name="HighlightPanel" type="Panel" parent="." unique_id=498026721]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d2xci")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

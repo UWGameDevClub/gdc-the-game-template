@@ -1,0 +1,215 @@
+[gd_scene format=3 uid="uid://cwwjmkhexeoxu"]
+
+[ext_resource type="Script" uid="uid://vai0dkb56uxt" path="res://main/screens/Leaderboard/leaderboard.gd" id="1_0jj8b"]
+[ext_resource type="Theme" uid="uid://d1iskwj0kgqo8" path="res://main/themes/menu_theme.tres" id="2_1cg4h"]
+[ext_resource type="Script" uid="uid://d1l1c5xva3lcu" path="res://main/screens/level_switch_button.gd" id="2_3g33b"]
+[ext_resource type="FontFile" uid="uid://k63t7wblivm1" path="res://shared/fonts/BoldsPixels.ttf" id="3_0jj8b"]
+[ext_resource type="PackedScene" uid="uid://byuqc5wjgbfrh" path="res://main/screens/Leaderboard/LeaderboardList.tscn" id="4_0jj8b"]
+[ext_resource type="Texture2D" uid="uid://c2uc26j4x88dc" path="res://main/screens/Leaderboard/discord_invite_qr_code_cropped.png" id="5_mduo7"]
+[ext_resource type="Script" uid="uid://ftx6f41o2bua" path="res://main/screens/Leaderboard/name_input.gd" id="5_pig7g"]
+[ext_resource type="Texture2D" uid="uid://cvhdxuq84m121" path="res://main/screens/Leaderboard/itch_page_qr_code_cropped.png" id="6_gfk5p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpeqc"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0.22745098, 0.25490198, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mduo7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gfk5p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3gvbj"]
+
+[node name="Leaderboard" type="Control" unique_id=244793586]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0jj8b")
+is_public_display = true
+this_screen = 5
+metadata/_custom_type_script = "uid://dtyvffw85vxrq"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=973518237]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.99607843, 0.99607843, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=826574918]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_right = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1897652328]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1629368520]
+layout_mode = 2
+theme = ExtResource("2_1cg4h")
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_0jj8b")
+theme_override_font_sizes/font_size = 64
+text = "LEADERBOARD"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1651442321]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="EventLeaderboardList" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1492462172 instance=ExtResource("4_0jj8b")]
+layout_mode = 2
+size_flags_horizontal = 3
+leaderboard_name = "CLUBS FAIR"
+
+[node name="LocalLeaderboardList" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1963682393 instance=ExtResource("4_0jj8b")]
+layout_mode = 2
+size_flags_horizontal = 3
+leaderboard_name = "LOCAL"
+
+[node name="TodayLeaderboardList" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=958035784 instance=ExtResource("4_0jj8b")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="QRCodeContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1223395782]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/VBoxContainer/HBoxContainer/QRCodeContainer" unique_id=1976831697]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/QRCodeContainer" unique_id=1505167655]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/QRCodeContainer/VBoxContainer" unique_id=1892219587]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_0jj8b")
+theme_override_font_sizes/font_size = 24
+text = "JOIN THE DISCORD!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/QRCodeContainer/VBoxContainer" unique_id=258827757]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("5_mduo7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/QRCodeContainer" unique_id=1702939225]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/QRCodeContainer/VBoxContainer2" unique_id=795462695]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_0jj8b")
+theme_override_font_sizes/font_size = 24
+text = "KEEP PLAYING THE GAMES!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/QRCodeContainer/VBoxContainer2" unique_id=743178426]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("6_gfk5p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AllTimeLeaderboardList" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=655151187 instance=ExtResource("4_0jj8b")]
+layout_mode = 2
+size_flags_horizontal = 3
+leaderboard_name = "ALL TIME"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1468535506]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2" unique_id=822585569]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1959633902]
+layout_mode = 2
+theme = ExtResource("2_1cg4h")
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_0jj8b")
+theme_override_font_sizes/font_size = 48
+text = "SEARCH: "
+
+[node name="CenterContainer" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1049989092]
+custom_minimum_size = Vector2(284, 0)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/CenterContainer" unique_id=932533963]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wpeqc")
+
+[node name="NameInput" type="LineEdit" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/CenterContainer" unique_id=692799751]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_0jj8b")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mduo7")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_gfk5p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3gvbj")
+placeholder_text = "NAMEHERE"
+alignment = 1
+max_length = 8
+expand_to_text_length = true
+virtual_keyboard_enabled = false
+script = ExtResource("5_pig7g")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1281347207]
+layout_mode = 2
+theme_override_constants/margin_right = 800
+
+[node name="GoToMainMenu" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=925193732]
+layout_mode = 2
+theme = ExtResource("2_1cg4h")
+text = "RETURN
+"
+script = ExtResource("2_3g33b")
+next_screen = 1
+
+[node name="UpdateTimer" type="Timer" parent="." unique_id=859879011]
+wait_time = 120.0
+autostart = true
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="name_created" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/CenterContainer/NameInput" to="." method="_on_name_input_name_created"]
+[connection signal="name_deleted" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/CenterContainer/NameInput" to="." method="_on_name_input_name_deleted"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/CenterContainer/NameInput" to="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/CenterContainer/NameInput" method="_on_text_changed"]
+[connection signal="timeout" from="UpdateTimer" to="." method="_on_update_timer_timeout"]

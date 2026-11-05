@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://0m2u2s37fdxe"]
+
+[ext_resource type="Script" uid="uid://dtyvffw85vxrq" path="res://main/screens/screen_root.gd" id="1_a7mld"]
+[ext_resource type="Script" uid="uid://d1l1c5xva3lcu" path="res://main/screens/level_switch_button.gd" id="1_xymp1"]
+[ext_resource type="Script" uid="uid://caqcwclhvb32d" path="res://main/screens/credits/credit_listings.gd" id="2_xqq8u"]
+
+[node name="Credits" type="Control" unique_id=856511887]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a7mld")
+this_screen = 4
+metadata/_custom_type_script = "uid://dtyvffw85vxrq"
+
+[node name="CenterContainer2" type="CenterContainer" parent="." unique_id=992297702]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="all_games" type="VBoxContainer" parent="CenterContainer2" unique_id=2006294710]
+layout_mode = 2
+script = ExtResource("2_xqq8u")
+
+[node name="GoToMainMenu" type="Button" parent="." unique_id=1997709314]
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 579.0
+offset_right = 1116.0
+offset_bottom = 610.0
+text = "Main Menu
+"
+script = ExtResource("1_xymp1")
+next_screen = 1

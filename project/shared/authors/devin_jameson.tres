@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AuthorProfile" format=3 uid="uid://80sw8u86psft"]
+
+[ext_resource type="Texture2D" uid="uid://bcdomyr3vva5" path="res://main/assets/pfp/dev-chan-pfp.png" id="1_kfgub"]
+[ext_resource type="Script" uid="uid://0ocenyv7ko7n" path="res://main/author_profile.gd" id="1_oy55s"]
+
+[resource]
+script = ExtResource("1_oy55s")
+profile_pic = ExtResource("1_kfgub")
+display_name = "Devin Jameson"
+metadata/_custom_type_script = "uid://0ocenyv7ko7n"
