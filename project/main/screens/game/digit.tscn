@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://vnnjwaveox7e"]
+
+[ext_resource type="Texture2D" uid="uid://bbhlua0an0231" path="res://main/assets/digits/digit0.png" id="1_5r8jj"]
+
+[node name="digit" type="TextureRect" unique_id=850420]
+texture = ExtResource("1_5r8jj")
+stretch_mode = 2

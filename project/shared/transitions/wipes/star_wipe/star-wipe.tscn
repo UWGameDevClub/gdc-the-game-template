@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://c1ayqr1rwdxr3"]
+
+[ext_resource type="Shader" uid="uid://busp53wr03so" path="res://shared/transitions/wipes/star_wipe/star-wipe.gdshader" id="1_0ve3c"]
+[ext_resource type="Texture2D" uid="uid://rol14ceh8plu" path="res://shared/transitions/wipes/star_wipe/frames/IMG_3694.PNG" id="1_6pfik"]
+[ext_resource type="Script" uid="uid://bdxr02770a16p" path="res://shared/transitions/wipes/star_wipe/star_wipe.gd" id="1_j5y3d"]
+[ext_resource type="Texture2D" uid="uid://bs4l4s7nuer7" path="res://shared/transitions/wipes/star_wipe/frames/IMG_3695.PNG" id="2_0ve3c"]
+[ext_resource type="Texture2D" uid="uid://d3sxflkqe0rtc" path="res://shared/transitions/wipes/star_wipe/frames/IMG_3696.PNG" id="3_j5y3d"]
+[ext_resource type="Texture2D" uid="uid://bg3lob5wadkbg" path="res://shared/transitions/wipes/star_wipe/frames/IMG_3697.PNG" id="4_vcypv"]
+[ext_resource type="Texture2D" uid="uid://dijahywki4fde" path="res://shared/transitions/wipes/star_wipe/frames/IMG_3698.PNG" id="5_2b0mp"]
+[ext_resource type="Texture2D" uid="uid://seqnwnkv5q2q" path="res://shared/transitions/wipes/star_wipe/frames/IMG_3699.PNG" id="6_b0ul8"]
+[ext_resource type="Texture2D" uid="uid://cm1vvhdgrbxky" path="res://shared/transitions/wipes/star_wipe/frames/IMG_3700.PNG" id="7_nwyk3"]
+[ext_resource type="Texture2D" uid="uid://ctd4qc2eyq14d" path="res://shared/transitions/wipes/star_wipe/frames/IMG_3701.PNG" id="8_a75m1"]
+[ext_resource type="Texture2D" uid="uid://eccigrgc6jpd" path="res://shared/transitions/wipes/star_wipe/frames/IMG_3702.PNG" id="9_jvfvt"]
+[ext_resource type="Texture2D" uid="uid://bi6y2gxj266dl" path="res://shared/transitions/wipes/star_wipe/frames/IMG_3703.PNG" id="10_lvbtw"]
+[ext_resource type="Texture2D" uid="uid://cvmco4f67mngi" path="res://shared/transitions/wipes/star_wipe/frames/IMG_3704.PNG" id="11_vsuyf"]
+[ext_resource type="Texture2D" uid="uid://cwjuyq2do775d" path="res://shared/transitions/wipes/star_wipe/frames/IMG_3705.PNG" id="12_ahxdm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5y3d"]
+shader = ExtResource("1_0ve3c")
+shader_parameter/current_screen_color_mask = Color(1, 1, 1, 1)
+shader_parameter/transparent_color_mask = Color(0, 0.6, 0.3137255, 1)
+shader_parameter/tolerance = 0.05
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smetd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_ahxdm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vsuyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lvbtw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jvfvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_a75m1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nwyk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_b0ul8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2b0mp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vcypv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_j5y3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0ve3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_6pfik")
+}],
+"loop": 0,
+"name": &"wipe",
+"speed": 12.0
+}]
+
+[node name="StarWipe" type="Control" unique_id=2034661347]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_j5y3d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1457859910]
+material = SubResource("ShaderMaterial_j5y3d")
+position = Vector2(576, 324)
+rotation = -6.2831855
+scale = Vector2(1.8, 1.8)
+sprite_frames = SubResource("SpriteFrames_smetd")
+animation = &"wipe"
+speed_scale = 2.0

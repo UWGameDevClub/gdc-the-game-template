@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://bjgbr1x8cwahg"]
+
+[ext_resource type="Script" uid="uid://dswdpcawrhrt5" path="res://main/screens/Leaderboard/score_creator.gd" id="1_n0qv5"]
+[ext_resource type="FontFile" uid="uid://k63t7wblivm1" path="res://shared/fonts/BoldsPixels.ttf" id="2_pxw2c"]
+[ext_resource type="Theme" uid="uid://d1iskwj0kgqo8" path="res://main/themes/menu_theme.tres" id="3_4tref"]
+[ext_resource type="Script" uid="uid://ftx6f41o2bua" path="res://main/screens/Leaderboard/name_input.gd" id="3_xcole"]
+[ext_resource type="Script" uid="uid://cs26xqu5v5m2k" path="res://main/screens/Leaderboard/connection_test.gd" id="5_xcole"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxw2c"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0.22745098, 0.25490198, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="FontVariation" id="FontVariation_pxw2c"]
+base_font = ExtResource("2_pxw2c")
+spacing_glyph = 40
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pxw2c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4tref"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcole"]
+
+[node name="ScoreCreator" type="Control" unique_id=1807623919]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n0qv5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1982376897]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.99607843, 0.99607843, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1747661705]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ScoreDisplay" type="VBoxContainer" parent="VBoxContainer" unique_id=1605212944]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ScoreDisplay" unique_id=930304144]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("2_pxw2c")
+theme_override_font_sizes/font_size = 48
+text = "SCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer/ScoreDisplay" unique_id=1281116085]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.22745098, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("2_pxw2c")
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer" unique_id=977921458]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/Control" unique_id=1525676379]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Control/CenterContainer" unique_id=1723640163]
+custom_minimum_size = Vector2(900, 112)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pxw2c")
+
+[node name="NameInput" type="LineEdit" parent="VBoxContainer/Control/CenterContainer" unique_id=782746840]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_pxw2c")
+theme_override_font_sizes/font_size = 128
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pxw2c")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_4tref")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xcole")
+placeholder_text = "NAMEHERE"
+alignment = 1
+max_length = 8
+expand_to_text_length = true
+virtual_keyboard_enabled = false
+script = ExtResource("3_xcole")
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer" unique_id=2130057919]
+layout_mode = 2
+
+[node name="EnterLeaderboardButton" type="Button" parent="VBoxContainer/CenterContainer" unique_id=230104039]
+layout_mode = 2
+theme = ExtResource("3_4tref")
+disabled = true
+text = "ENTER NAME INTO LEADERBOARD"
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer" unique_id=1419553483]
+layout_mode = 2
+
+[node name="SkipButton" type="Button" parent="VBoxContainer/CenterContainer2" unique_id=1064079494]
+layout_mode = 2
+theme = ExtResource("3_4tref")
+text = "SKIP"
+
+[node name="ConnectionTest" type="HTTPRequest" parent="." unique_id=1674894748]
+script = ExtResource("5_xcole")
+metadata/_custom_type_script = "uid://cs26xqu5v5m2k"
+
+[connection signal="name_created" from="VBoxContainer/Control/CenterContainer/NameInput" to="." method="_on_name_input_name_created"]
+[connection signal="name_deleted" from="VBoxContainer/Control/CenterContainer/NameInput" to="." method="_on_name_input_name_deleted"]
+[connection signal="text_changed" from="VBoxContainer/Control/CenterContainer/NameInput" to="VBoxContainer/Control/CenterContainer/NameInput" method="_on_text_changed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/EnterLeaderboardButton" to="." method="enter_score"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/SkipButton" to="." method="_on_skip_button_pressed"]

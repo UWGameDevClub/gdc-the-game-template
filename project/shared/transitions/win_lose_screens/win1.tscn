@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://0jno1t6fnkp0"]
+
+[ext_resource type="Script" uid="uid://u2dxojprf08q" path="res://shared/transitions/win_lose_screens/win.gd" id="1_vqk3s"]
+[ext_resource type="Shader" uid="uid://busp53wr03so" path="res://shared/transitions/wipes/star_wipe/star-wipe.gdshader" id="2_q3rug"]
+[ext_resource type="Texture2D" uid="uid://mwv45hbglw5r" path="res://shared/transitions/win_lose_screens/win1/frames/IMG_3690.PNG" id="3_4yxrk"]
+[ext_resource type="Texture2D" uid="uid://cjyksjq7idmox" path="res://shared/transitions/win_lose_screens/win1/frames/IMG_3691.PNG" id="4_8xgs6"]
+[ext_resource type="Texture2D" uid="uid://cianltb10gthk" path="res://shared/transitions/win_lose_screens/win1/frames/IMG_3692.PNG" id="5_s68bx"]
+[ext_resource type="Texture2D" uid="uid://c30n1kx8gpoo4" path="res://shared/transitions/win_lose_screens/win1/frames/IMG_3693.PNG" id="6_jpqfk"]
+[ext_resource type="Script" uid="uid://bvevn42has1dp" path="res://main/screens/game/digits.gd" id="7_3hxdc"]
+[ext_resource type="PackedScene" uid="uid://vnnjwaveox7e" path="res://main/screens/game/digit.tscn" id="8_53a4x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ci3x6"]
+shader = ExtResource("2_q3rug")
+shader_parameter/current_screen_color_mask = Color(1, 1, 1, 1)
+shader_parameter/transparent_color_mask = Color(0, 0.6, 0.3137255, 1)
+shader_parameter/tolerance = 0.05
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b5t1f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4yxrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8xgs6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s68bx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jpqfk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Win1" type="Control" unique_id=545431844 node_paths=PackedStringArray("score_number")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vqk3s")
+score_number = NodePath("score_number")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=165935193]
+material = SubResource("ShaderMaterial_ci3x6")
+position = Vector2(576, 324)
+rotation = -6.2831855
+scale = Vector2(1.8, 1.8)
+sprite_frames = SubResource("SpriteFrames_b5t1f")
+autoplay = "default"
+frame_progress = 0.32689488
+
+[node name="score_number" type="HBoxContainer" parent="." unique_id=2007481995]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 176.0
+offset_top = 117.0
+offset_right = 446.0
+offset_bottom = 217.0
+scale = Vector2(1.9107755, 1.9107755)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/separation = -15
+script = ExtResource("7_3hxdc")
+
+[node name="digit" parent="score_number" unique_id=850420 instance=ExtResource("8_53a4x")]
+layout_mode = 2

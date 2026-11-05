@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://wn163avtbdhb"]
+
+[ext_resource type="Script" uid="uid://b258chwg2785g" path="res://shared/timers/default_timer_v1/default_timer.gd" id="1_h48f1"]
+
+[node name="DefaultTimer" type="Node" unique_id=786383189]
+script = ExtResource("1_h48f1")
+tick_interval = 0.5
+metadata/_custom_type_script = "uid://k2s1gxi728fw"
+
+[connection signal="tick" from="." to="." method="my_on_tick"]
+[connection signal="timeout" from="." to="." method="my_on_timeout"]

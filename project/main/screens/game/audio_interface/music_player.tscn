@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b0evmwm0qm4pd"]
+
+[ext_resource type="AudioStream" uid="uid://denxaibsfhfw5" path="res://main/assets/WL In-Game.ogg" id="1_u05m5"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" unique_id=929919593]
+stream = ExtResource("1_u05m5")
+volume_db = -15.0
+parameters/looping = true

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cp75gsxi8tr0g"]
+
+[ext_resource type="Script" uid="uid://dup3ipkg3u78m" path="res://shared/credits/default_credit_display_v1/default_credit_display.gd" id="1_w837n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kfbq2"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_4dugh"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_nf3nv"]
+font_size = 11
+
+[node name="default_credit_display" type="PanelContainer" unique_id=1124276048 node_paths=PackedStringArray("thumbnail", "title", "authors", "description")]
+custom_minimum_size = Vector2(0, 100)
+script = ExtResource("1_w837n")
+thumbnail = NodePath("MarginContainer/HBoxContainer/Container/Thumbnail")
+title = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Title")
+authors = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Authors")
+description = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Desc")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=430232243]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1059226887]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Container" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=1668157278]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+
+[node name="Thumbnail" type="TextureRect" parent="MarginContainer/HBoxContainer/Container" unique_id=1478666957]
+layout_mode = 2
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=478821372]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1193021249]
+layout_mode = 2
+text = "Game Title"
+label_settings = SubResource("LabelSettings_kfbq2")
+
+[node name="Authors" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1528483639]
+layout_mode = 2
+text = "person1, person2, person3"
+label_settings = SubResource("LabelSettings_4dugh")
+
+[node name="Desc" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=421493222]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"
+label_settings = SubResource("LabelSettings_nf3nv")
+autowrap_mode = 3

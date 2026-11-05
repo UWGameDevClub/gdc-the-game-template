@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MicroGameSelection" format=3 uid="uid://bcdftakt7htif"]
+
+[ext_resource type="Script" uid="uid://cji2wkyx727kh" path="res://main/micro_game_interface/micro_game_selection.gd" id="1_7ou6k"]
+[ext_resource type="Script" uid="uid://dciiueikp53p7" path="res://main/micro_game_interface/micro_game_info.gd" id="2_a2vwl"]
+[ext_resource type="Resource" uid="uid://cph7yqrhlaau7" path="res://micro_games/F26/test_micro_game/test_info.tres" id="3_a2vwl"]
+
+[resource]
+script = ExtResource("1_7ou6k")
+selected_games = Array[ExtResource("2_a2vwl")]([ExtResource("3_a2vwl")])
+metadata/_custom_type_script = "uid://cji2wkyx727kh"
