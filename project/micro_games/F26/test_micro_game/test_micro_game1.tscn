@@ -6,6 +6,7 @@
 [node name="TestMicroGame1" type="Node2D" unique_id=1018004362]
 script = ExtResource("1_x4cn4")
 default_game_duration = 4.0
+pre_game_time = 11.0
 post_game_time = 1.4
 lose_on_timeout = true
 

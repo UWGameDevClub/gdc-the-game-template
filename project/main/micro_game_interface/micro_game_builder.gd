@@ -60,7 +60,10 @@ func add_instance_to_scene(canvas_layer : CanvasLayer, viewport : SubViewport):
 	else:
 		viewport.size_2d_override.x = 0
 		viewport.size_2d_override.y = 0
-		
+
+	if info.curser_settings:
+		info.curser_settings.set_custom_curser()
+
 	if loaded_instance:
 		viewport.add_child(loaded_instance)
 		

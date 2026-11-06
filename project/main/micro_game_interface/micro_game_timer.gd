@@ -3,23 +3,40 @@ class_name MicroGameTimer
 
 
 @warning_ignore_start("unused_signal")
+## Emitted when the timer ends.
 signal timeout
+
+## Emitted at fixed intervals. See also tick_interval.
 signal tick
 @warning_ignore_restore("unused_signal")
 
+## Time, in seconds, between times tick is emitted. See also tick.
 @export var tick_interval : float
 
 
 var _total_duration : float = 0.0
 var _expired : bool = true
-var expired: bool:
-	get(): return expired
 
 var _expire_timer : Timer
 var _tick_timer : Timer
 
+## The total time required for the timer to end, in seconds.
+## This value is updated when start is called.
+var total_duration: bool:
+	get(): return _total_duration
+
+
+## False if the timer is running, otherwise true.
+var expired: bool:
+	get(): return _expired
+
+## Amount of time, in seconds, since the timer started.
 func elasped_time():
 	return _total_duration - _expire_timer.time_left
+
+## The timer's remaining time in seconds. Always zero when the timer is expired.
+func time_left():
+	return _expire_timer.time_left
 
 func _ready() -> void:
 	_expired = true
@@ -39,6 +56,7 @@ func _ready() -> void:
 	_expire_timer.timeout.connect(_on_timeout)
 	
 
+## Call this function to start the timer.
 func start(wait_time : float):
 	_total_duration = wait_time
 
@@ -47,7 +65,8 @@ func start(wait_time : float):
 	_expire_timer.start(wait_time)
 	_tick_timer.start()
 
-
+## Call this function to stop the timer.
+## Does not emit the timeout signal.
 func stop():
 	_expire_timer.stop()
 	_tick_timer.stop()
@@ -60,8 +79,6 @@ func _on_tick():
 
 	tick.emit()
 	_tick_timer.start()
-
-	
 
 func _on_timeout():
 	_expired = true
