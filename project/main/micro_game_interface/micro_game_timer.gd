@@ -16,7 +16,7 @@ signal tick
 
 var _total_duration : float = 0.0
 var _expired : bool = true
-
+var _paused : bool = true
 var _expire_timer : Timer
 var _tick_timer : Timer
 
@@ -25,6 +25,15 @@ var _tick_timer : Timer
 var total_duration: bool:
 	get(): return _total_duration
 
+
+var paused : bool:
+	get(): return _paused
+	set(value):
+		if value:
+			pause()
+		else:
+			resume()
+	
 
 ## False if the timer is running, otherwise true.
 var expired: bool:
@@ -44,11 +53,13 @@ func _ready() -> void:
 	if not _expire_timer:
 		_expire_timer = Timer.new()
 		add_child(_expire_timer)
-		_expire_timer.autostart = false
+		_expire_timer.autostart = paused
+		_expire_timer.paused = paused
 
 	if not _tick_timer:
 		_tick_timer = Timer.new()
 		add_child(_tick_timer)
+		_tick_timer.paused = paused
 
 	_tick_timer.timeout.connect(_on_tick)
 	_tick_timer.wait_time = tick_interval
@@ -64,6 +75,20 @@ func start(wait_time : float):
 	
 	_expire_timer.start(wait_time)
 	_tick_timer.start()
+
+func pause():
+	if paused: return
+	
+	_paused = true
+	_tick_timer.paused = true
+	_expire_timer.paused = true
+	
+func resume():
+	if not paused: return
+	
+	_paused = false
+	_tick_timer.paused = false
+	_expire_timer.paused = false
 
 ## Call this function to stop the timer.
 ## Does not emit the timeout signal.

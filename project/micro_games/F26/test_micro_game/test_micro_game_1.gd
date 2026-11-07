@@ -20,9 +20,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		trigger_game_lost()
 	
 func on_win():
-	label.text = "win!"
+	label.text = "win!" + str(micro_game_data.times_won + 1) + "/"+ str(micro_game_data.times_played + 1)
 
 func on_lose():
 	audio_service.paused = true
-	label.text = "lost! :("
+	label.text = "lost! :(" + str(micro_game_data.times_lost + 1) + "/"+ str(micro_game_data.times_played + 1)
 	sprite_2d.rotation_degrees = 180

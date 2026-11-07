@@ -62,7 +62,7 @@ func add_instance_to_scene(canvas_layer : CanvasLayer, viewport : SubViewport):
 		viewport.size_2d_override.y = 0
 
 	if info.curser_settings:
-		info.curser_settings.set_custom_curser()
+		info.curser_settings.set_custom_cursor()
 
 	if loaded_instance:
 		viewport.add_child(loaded_instance)
@@ -81,7 +81,7 @@ func load_instance():
 		loaded_instance.timer_type != MicroGameInfo.TimerType.CustomTimer:
 		loaded_default_timer = null
 		var default_timers = [default_timer_no_UI, default_timer_with_UI]
-		loaded_default_timer = default_timers[info.timer_type].instantiate()
+		loaded_default_timer = default_timers[loaded_instance.timer_type].instantiate()
 		
 		if "timer" in loaded_instance:
 			loaded_instance.timer = loaded_default_timer

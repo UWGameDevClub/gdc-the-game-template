@@ -113,6 +113,7 @@ func on_screen_enter(screen):
 func start_new_run(new_selection : MicroGameSelection):
 	selection = new_selection
 	game_selector.reload(selection.selected_games)
+	loaded_games.clear()
 	run_data = RunData.new()
 	run_data.lives = 3
 	run_data.score = 0
@@ -131,6 +132,7 @@ func on_screen_exit(screen):
 	_reset_cursor()
 	_set_time_scale(1)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	loaded_games.clear()
 
 func save_thumbnail():
 	if game_selector.current_game != null:

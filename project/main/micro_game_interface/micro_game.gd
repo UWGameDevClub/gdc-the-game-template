@@ -1,3 +1,5 @@
+## A base class for micro games.
+## Provides access to external dependenciesa and handles lifetime callbacks.
 extends Node
 class_name MicroGame
 
@@ -16,7 +18,8 @@ signal done(won : bool)
 ## Optionally, you can start the timer in the _ready function.
 @export var auto_start_timer : bool = true
 
-## Time between _ready returning and the timer starting.
+## Time between _ready returning and the count down starting. 
+## If the pre_game_time > 0, then [member timer] will be paused for that amount of time.
 @export var pre_game_time : float = 0
 
 ## Time between on_win/on_lose returning and the done signal being emitted.
@@ -43,7 +46,7 @@ var current_state : int:
 ## The info resource for your micro game.
 @export var info : MicroGameInfo
 
-## Provices functions to resume and play the background music.
+## Provides functions to resume and play the background music.
 @export var audio_service : AudioService
 
 ## Stats about the current run (lives, score, games played etc.)
@@ -66,18 +69,31 @@ func _start_timer_after_ready():
 	if auto_start_timer and timer.expired:
 		if post_game_time > 0:
 			var t = get_tree().create_timer(pre_game_time)
-			t.timeout.connect(start_timer.bind(default_game_duration))
+			timer.start(default_game_duration)
+			timer.pause()
+			t.timeout.connect(_delayed_start)
 		else:
 			start_timer(default_game_duration)
 
-## Call this function to start the micro game timer.
+func _delayed_start():
+	if not timer.timeout.is_connected(_handle_timeout):
+		timer.timeout.connect(_handle_timeout)
+	
+	if _current_state == Starting:
+		_current_state = Playing
+		timer.resume()
+
+
+## Call this function when your micro game is Starting to start the micro game timer.
 ## Calling this function while the timer is running will reset the timer.
 func start_timer(duration : float) -> void:
 	if not timer.timeout.is_connected(_handle_timeout):
 		timer.timeout.connect(_handle_timeout)
 	
-	timer.start(duration)
-	_current_state = Playing
+	if _current_state == Starting:
+		timer.start(duration)
+		timer.resume()
+		_current_state = Playing
 
 
 func _handle_timeout():
@@ -108,7 +124,7 @@ func trigger_game_won() -> void:
 	
 func _finish_game_won():
 	_current_state = Idle
-	done.emit.call_deferred(true)
+	_emit_done.call_deferred(true)
 
 
 ## Call this function to end the game when the player loses.
@@ -129,8 +145,14 @@ func trigger_game_lost() -> void:
 
 func _finish_game_lost():
 	_current_state = Idle
-	done.emit.call_deferred(false)
+	_emit_done.call_deferred(false)
 
+func _emit_done(won : bool):
+	micro_game_data.times_played += 1
+	if won:
+		micro_game_data.times_won += 1
+	
+	done.emit(won)
 
 ## Called when the timer expired.
 ## This will only run once during each play of your micro game.
