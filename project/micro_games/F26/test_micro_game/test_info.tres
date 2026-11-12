@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dciiueikp53p7" path="res://main/micro_game_interface/micro_game_info.gd" id="1_fc5iw"]
 [ext_resource type="PackedScene" uid="uid://df0hg1svnwnl" path="res://micro_games/F26/test_micro_game/test_micro_game1.tscn" id="1_nyutt"]
+[ext_resource type="Resource" uid="uid://bpxg8q2xg2nde" path="res://micro_games/F26/test_micro_game/new_resource.tres" id="1_xsq14"]
 
 [resource]
 script = ExtResource("1_fc5iw")
 title = "Test Game"
 authors = "Lexie"
 description = "This is just a test"
+instruction = "Press space!"
 game_scene = ExtResource("1_nyutt")
 control_format = 1
-start_with_mouse_hidden = true
+curser_settings = ExtResource("1_xsq14")
 metadata/_custom_type_script = "uid://dciiueikp53p7"

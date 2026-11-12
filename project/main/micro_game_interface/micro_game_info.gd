@@ -52,24 +52,21 @@ enum ControlFormat {
 
 #@export_group("Deprecated")
 
+## @deprecated: Set this value in MicroGame
 var timer_type : TimerType = TimerType.DefaultWithUI
+
+## @deprecated: Set this value in MicroGame
 var default_game_duration : float = 10
 
-var micro_game_event : Resource = null
+## @deprecated: Use [member start_with_mouse_hidden] instead.
 var force_hide_mouse : bool = false
-var custom_credit_display : PackedScene = null
-var custom_credit_settings : Resource = null
-var mouse_hidden : bool = false
 
-### returns the micro game context
-### buidls up a default context if a custom one is not provided
-#func get_context() -> MicroGameContext:
-	#if context == null:
-		#context = MicroGameContext.new()
-	#
-	#if _initialized_context != context:
-		##TODO: Set default values based on non advanced settings
-		#context.initialize(self)
-		#_initialized_context = context
-	#
-	#return context
+## @deprecated: This is a surprise tool that will help us later.
+var custom_credit_display : PackedScene = null
+
+## @deprecated: So is this. See also [member custom_credit_display]
+var custom_credit_settings : Resource = null
+
+## @deprecated: Use [property start_with_mouse_hidden] instead.
+## I know I made three of these. What are you gonna do about it?
+var mouse_hidden : bool = false

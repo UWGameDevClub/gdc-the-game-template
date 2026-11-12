@@ -6,6 +6,7 @@
 [node name="TestMicroGame1" type="Node2D" unique_id=1018004362]
 script = ExtResource("1_x4cn4")
 default_game_duration = 4.0
+pre_game_time = 0.1
 post_game_time = 1.4
 lose_on_timeout = true
 
@@ -18,4 +19,18 @@ offset_left = 508.0
 offset_top = 227.0
 offset_right = 655.0
 offset_bottom = 250.0
+text = "Press space to win!"
+
+[node name="current_score" type="Label" parent="." unique_id=30358946]
+offset_left = 56.0
+offset_top = 47.0
+offset_right = 203.0
+offset_bottom = 70.0
+text = "Press space to win!"
+
+[node name="current_lives" type="Label" parent="." unique_id=1282924388]
+offset_left = 62.0
+offset_top = 111.0
+offset_right = 209.0
+offset_bottom = 134.0
 text = "Press space to win!"

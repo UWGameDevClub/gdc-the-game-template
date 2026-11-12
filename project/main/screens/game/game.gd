@@ -34,7 +34,6 @@ signal game_finished
 			game_selector.reset()
 
 @export var game_selector : GameSelector
-## TODO: CLEANUP ## @export var game_loader : MicroGameCache 
 
 @export_group("Speed Up")
 @export var speed_up_frequency = 10
@@ -113,11 +112,15 @@ func on_screen_enter(screen):
 func start_new_run(new_selection : MicroGameSelection):
 	selection = new_selection
 	game_selector.reload(selection.selected_games)
+	loaded_games.clear()
 	run_data = RunData.new()
+	run_data.mode = RunData.Mode.Practice if is_practice else RunData.Mode.Play 
 	run_data.lives = 3
 	run_data.score = 0
 	run_data.speed_mult = 1
-	run_data.speed_up_in = speed_up_frequency
+	run_data.speed_inc = speed_inc
+	run_data.speed_up_frequency = speed_up_frequency
+	run_data.speed_up_in = run_data.speed_up_frequency
 
 	_set_time_scale(1)
 
@@ -131,6 +134,7 @@ func on_screen_exit(screen):
 	_reset_cursor()
 	_set_time_scale(1)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	loaded_games.clear()
 
 func save_thumbnail():
 	if game_selector.current_game != null:

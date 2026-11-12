@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CursorSetting" format=3 uid="uid://bpxg8q2xg2nde"]
+
+[ext_resource type="Texture2D" uid="uid://dfb31vmpabfm1" path="res://icon.svg" id="1_gggp8"]
+[ext_resource type="Script" uid="uid://tlga5ptiqscd" path="res://main/micro_game_interface/services/cursor_settings.gd" id="1_m7ymj"]
+
+[resource]
+script = ExtResource("1_m7ymj")
+images = Dictionary[int, Resource]({
+0: ExtResource("1_gggp8")
+})
+metadata/_custom_type_script = "uid://tlga5ptiqscd"
