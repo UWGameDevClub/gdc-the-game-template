@@ -9,6 +9,7 @@ script = ExtResource("1_fc5iw")
 title = "Test Game"
 authors = "Lexie"
 description = "This is just a test"
+instruction = "Press space!"
 game_scene = ExtResource("1_nyutt")
 control_format = 1
 curser_settings = ExtResource("1_xsq14")

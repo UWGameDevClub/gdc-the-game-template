@@ -3,26 +3,41 @@ extends MicroGame
 var timeout : float
 @onready var label: Label = $Label
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var current_score: Label = $current_score
+@onready var current_lives: Label = $current_lives
 
 
 func _ready():
 	default_game_duration = 2
 	label.text = "press space to win!"
-	#get_tree().create_timer(timeout).timeout.connect(func(): done.emit(true))
+	
+	current_score.text = "score: " + str(run_data.score)
+	current_lives.text = "lives: " + str(run_data.lives)
+
 
 func _unhandled_input(event: InputEvent) -> void:
-	if timer.elasped_time() < 1.0/4:
-		return
-		
+	# win the game if space is pressed
 	if event.is_action("space"):
 		trigger_game_won()
+	
+	# lose if any other key was pressed
 	elif event is InputEventKey and event.is_pressed():
 		trigger_game_lost()
-	
+
+
 func on_win():
-	label.text = "win!" + str(micro_game_data.times_won + 1) + "/"+ str(micro_game_data.times_played + 1)
+	# add 1 to include the game that is currently ending
+	var times_won = str(micro_game_data.times_won + 1)
+	var times_played = str(micro_game_data.times_played + 1)
+	
+	label.text = "win!" + times_won + "/" + times_played
+
 
 func on_lose():
 	audio_service.paused = true
-	label.text = "lost! :(" + str(micro_game_data.times_lost + 1) + "/"+ str(micro_game_data.times_played + 1)
+	
+	# add 1 to include the game that is currently ending
+	var times_lost = str(micro_game_data.times_lost + 1)
+	var times_played = str(micro_game_data.times_played + 1)
+	label.text = "lost! :( " + times_lost + "/"+ times_played
 	sprite_2d.rotation_degrees = 180
